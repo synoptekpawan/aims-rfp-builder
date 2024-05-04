@@ -1,0 +1,12 @@
+Quality Control
+Synoptek is committed to continual quality improvement and improving the effectiveness of our Quality Management System (QMS) with ISO 9001:2015 compliance. Our basis for Application Development Quality control lies within the Software Development Framework:
+
+1.	Requirements Analysis
+2.	Planning
+3.	Software design
+4.	Software development
+5.	Testing
+6.	Deployment
+
+Security and Compliance
+Synoptek maintains industry-standard corporate security controls.  The measures we follow have been independently evaluated for their presence and continuity through the American Institute of CPAs’ Report on Controls at a Service Organization Relevant to Security and Availability (commonly referred to as a SOC 2 Type II attestation report), and from an ISO/IEC27001:2013 (Information Technology - Security Techniques - Information Security Management Systems) Certification.  These independent attestations and certifications provide clients with proof that Synoptek continues to maintain a reasonable level of control over client data. The reports are available upon request.

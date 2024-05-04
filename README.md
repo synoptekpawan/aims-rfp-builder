@@ -1,1 +1,1 @@
-# aims-rfp-builder
+# aims-proposal-builder

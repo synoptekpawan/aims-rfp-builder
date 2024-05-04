@@ -1,0 +1,61 @@
+Synoptek believes in transparent and straightforward pricing structures that align with your specific needs and budgetary considerations.  Our Engineering Center of Excellence pricing model is meticulously designed to provide clarity on fee structures, markups, and any supplementary costs, ensuring that you have a comprehensive understanding of the investment involved.  We prioritize transparency in our pricing, and for your convenience, any region/country-specific pricing is converted to United States dollars (USD), with a clear delineation of any underlying assumptions related to weekly, monthly, or fixed pricing options.
+
+a)	Base Salary
+The foundation of our pricing structure is the base salary, which constitutes the core remuneration for our dedicated team members at the Engineering Center of Excellence.  The base salary is determined based on the position, skills, and experience of the team members and reflects competitive market rates in the offshore location.  This component ensures that our team members receive competitive compensation while still offering cost advantages compared to hiring in high-cost regions.
+
+b)	Loading Factors
+In addition to the base salary, we incorporate a loading factor to account for other employee-related costs, such as statutory benefits, insurance, HR management, legal compliance, infrastructure, technology support, and overall coordination and administrative expenses. For a few items, this loading factor is expressed as a percentage of the base salary and varies according to local regulations and practices.  It ensures that all statutory and operational requirements are met, providing a comprehensive compensation package for our team members.  It is designed to ensure the seamless functioning of the offshore subsidiary, with transparent management practices that align with the parent company's objectives.  Loading Factors would likely vary based on the location of the ECE.
+
+c)	Shift Charges
+Shift charges are fees or costs for working beyond the team’s standard shift which for India, for example, is (10 AM to 7 PM).  These charges help us to incentivize the team to work in off-peak periods and provide our customers with overlapping working hours. Shift charges could vary based on the location of the ECE.
+
+d)	Total Cost Calculation
+The total cost for services provided by the ECE is calculated as follows:
+
+Total Cost = Base Salary + (Base Salary x Loading Factors) + Shift Charges
+
+The combination of these components results in a predictable and comprehensive pricing structure.  The base salary and loading factor represent the remuneration for our skilled team members, while the management fee covers the costs associated with efficient operations and management of the ECE.  This pricing structure enables our clients to have a clear understanding of their financial commitments and the value they receive.
+
+•	Cost Transparency and Benefits: Transparency is a core principle of our pricing structure. It allows our clients to see the breakdown of costs and understand how each component contributes to the overall pricing. The benefits of this approach include:
+•	Clarity: Clients have a clear understanding of the financial commitment and where their funds are allocated.
+•	Competitive Advantage: Our competitive pricing, in combination with skilled professionals, provides a substantial cost advantage compared to in-house teams in high-cost regions.
+•	Efficient Management: The management fee ensures the ECE operates efficiently, complying with local regulations and industry standards.
+
+This pricing structure reflects our commitment to delivering value, cost-efficiency, and excellence in services through a transparent and balanced approach.
+
+By clearly explaining the pricing structure that incorporates the base salary, loading factor, and shift charges, our clients gain a comprehensive understanding of the costs and services provided by the ECE.  This transparency promotes trust and confidence in the financial arrangements and benefits both the client and us.
+
+Pricing Model
+Based on above pricing model below pricing structure reflects our commitment to delivering value, cost-efficiency, and excellence in services through a transparent and balanced approach.
+
+ 
+TABLE: PRICING STRUCTURE – INDIA ECE
+
+ 
+TABLE: PRICING STRUCTURE – LATIN AMERICA ECE
+
+ 
+TABLE: PRICING STRUCTURE – MACEDONIA ECE
+
+ 
+TABLE: PRICING STRUCTURE – NORTH AMERICA ECE
+
+ 
+TABLE: PRICING STRUCTURE – NORTH AMERICA RESOURCES, NOTE STAFF ENGINEER NOT REQUIRED WITH NORTH AMERICA ECE
+
+Notes: 
+•	Loading Factor covers benefits, bonuses, management, software cost, staff welfare cost.  Loading factor percentage varies by Engineering Center of Excellence location.
+•	Loading-Fixed Cost-yearly, contains IT Asset, operation, property & its maintenance expense.  Fixed cost loading fees vary by Engineering Center of Excellence location.
+•	Shift Loading Covers a flat 20% fee on Basic Salary-yearly for supporting shift cost for overlap of Eastern time zone.  Shift loading fees vary by Engineering Center of Excellence location.
+•	Total cost arrived with (Basic salary + Loading Factor @27.3%+Loading Fixed Cost + Shift Loading) for an India-based ECE.
+•	Synoptek Margin is calculated as 20.0% of total cost.
+•	Total Cost-Yearly: Column is the final arrived cost. 
+•	Total Cost-Hourly: Column captures hourly rates.  
+•	Hourly rate is arrived taken as 2,080 hours per Annum this includes statutory holidays and paid time off
+•	There is a one-time cost for setting up an Engineering Center of Excellence. 
+
+Assumptions:
+•	All additional costs arising, but not discussed as part of the current model or any additional software charges, shall be passed on to the client as and when they occur.
+•	A full-time resource will be billed monthly.
+•	A North America-based Staff Engineer is required if the ECE is not located within North America.
+•	Total monthly cost for non-North America Engineering of Excellence includes the Engineering of Excellence cost plus required North America resources.

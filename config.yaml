@@ -1,0 +1,10 @@
+credentials:
+  usernames:
+    test_user:
+      email: pchichghare@synoptek.com
+      name: Test User
+      password: $2b$12$yLKJl0HtMBq3k5z6ohsCFeNlvasra1LJvVINAm7mgV9uXCRAjissW
+cookie:
+  expiry_days: 30
+  key: random_signature_key # Must be string
+  name: random_cookie_name
