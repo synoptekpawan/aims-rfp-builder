@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_extras.app_logo import add_logo
+from streamlit_extras.colored_header import colored_header
 from datetime import date
 today = date.today()
 import time
@@ -25,8 +26,13 @@ os.environ['LANGCHAIN_ENDPOINT'] = os.getenv("LANGCHAIN_ENDPOINT")
 os.environ['LANGCHAIN_API_KEY'] = os.getenv("LANGCHAIN_API_KEY")
 os.environ['LANGCHAIN_PROJECT'] = os.getenv("LANGCHAIN_PROJECT")
 
-st.set_page_config(page_title="Query RFP", page_icon="💬")
+st.set_page_config(page_title="Query RFP", page_icon="💬", layout="wide")
 add_logo(r"./synoptek-new-removebg-3.png")
+
+colored_header(
+        label="💬 Query RFP", description="\n",
+        color_name="violet-70",
+    )
 
 # index_name = st.sidebar.text_input("**Add index name for the doc**")
 # index_name = "rfp-request-marta-"

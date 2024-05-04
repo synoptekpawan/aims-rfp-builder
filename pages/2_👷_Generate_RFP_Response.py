@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_extras.app_logo import add_logo
+from streamlit_extras.colored_header import colored_header
 from langchain_community.vectorstores import AzureSearch
 from langchain_community.embeddings import AzureOpenAIEmbeddings
 from langchain.chains import RetrievalQA, ConversationalRetrievalChain
@@ -27,6 +28,11 @@ os.environ['LANGCHAIN_PROJECT'] = os.getenv("LANGCHAIN_PROJECT")
 
 st.set_page_config(layout="wide", page_title="Generate RFP Response", page_icon="👷")
 add_logo(r"./synoptek-new-removebg-3.png")
+
+colored_header(
+        label="👷 Generate RFP Response", description="\n",
+        color_name="violet-70",
+    )
 
 deployment_gpt4_turbo = 'gpt-4-1106-preview'
 deployment_gpt4 = 'gpt-4'
@@ -69,7 +75,7 @@ embeddings: AzureOpenAIEmbeddings = AzureOpenAIEmbeddings(
 with st.sidebar:
     
     st.title('👷 Generate RFP Response') # 🤖
-    clientOrg = st.text_input("**What is the client orgnisation name? 🚩**", key='clientOrg0')
+    clientOrg = st.text_input("**What is the client orgnisation name?** 🚩", key='clientOrg0')
     
     rfp = st.file_uploader("**Upload RFP Request Here!**")
     
