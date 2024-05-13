@@ -66,7 +66,7 @@ embeddings: AzureOpenAIEmbeddings = AzureOpenAIEmbeddings(
 )
 
 with st.sidebar:
-    st.title('💬 Query RFP Request') # 🤖
+    # st.title('💬 Query RFP Request') # 🤖
     clientOrg = st.text_input("**What is the client orgnisation name?**", key='clientOrg0')
     index_name = "rfp-request-"+str(clientOrg).lower()+"-"+str(today)
     vector_store: AzureSearch = AzureSearch(
