@@ -75,7 +75,7 @@ embeddings: AzureOpenAIEmbeddings = AzureOpenAIEmbeddings(
 with st.sidebar:
     
     st.title('👷 Generate RFP Response') # 🤖
-    clientOrg = st.text_input("**What is the client orgnisation name?** 🚩", key='clientOrg0')
+    clientOrg = st.text_input("**What is the client name?** 🚩", key='clientOrg0')
     
     rfp = st.file_uploader("**Upload RFP Request Here!**")
     
