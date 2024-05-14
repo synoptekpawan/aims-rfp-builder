@@ -129,21 +129,9 @@ embeddings: AzureOpenAIEmbeddings = AzureOpenAIEmbeddings(
 
 ## upload rfp request
 with st.sidebar:
-<<<<<<< HEAD
-
-    if 'clientOrg' not in st.session_state:
-        st.session_state['clientOrg'] = ''
-
-    clientOrg = st.text_input("**What is the client orgnisation name?** 🚩", 
-                            key='clientOrg0', value=st.session_state['clientOrg'])
-
-    st.session_state['clientOrg'] = clientOrg
-    # clientOrg = st.text_input("**What is the client orgnisation name?** 🚩", key='clientOrg0')
-=======
     
     st.title('👷 Generate RFP Response') # 🤖
     clientOrg = st.text_input("**What is the client name?** 🚩", key='clientOrg0')
->>>>>>> 84104810f8978404289a472bb885681f9126a410
     
     rfp = st.file_uploader("**Upload RFP Request Here!**")
    

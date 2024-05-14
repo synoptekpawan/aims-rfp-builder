@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
+import streamlit as st
 
 from utils.all_prompts_templates import *
 from prompts.all_prompts_v0 import *
@@ -8,7 +9,7 @@ import re
 import json
 import time
 from langchain.chains import RetrievalQA
-
+@st.cache_resource
 def generate_response(scope, clientOrg, sections, vector_store, llm_qa, llm_resp):
 
     qa_chain = RetrievalQA.from_chain_type(
