@@ -31,6 +31,10 @@ Analysis
 docs
 misc
 
+# files
+3_👷_Generate_RFP_Response_new.py
+get_doc_template.py
+
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
