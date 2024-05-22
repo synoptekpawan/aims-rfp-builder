@@ -21,7 +21,7 @@ from datetime import datetime
 import jinja2
 import io
 import spacy
-nlp = spacy.load("en_core_web_lg")
+# nlp = spacy.load("en_core_web_lg")
 from docx import Document
 from datetime import date
 import time
