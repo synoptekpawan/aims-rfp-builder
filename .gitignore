@@ -32,8 +32,8 @@ docs
 misc
 
 # files
-3_👷_Generate_RFP_Response_new.py
-get_doc_template.py
+2_👷_Generate_RFP_Response_new.py
+
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
