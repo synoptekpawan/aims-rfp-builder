@@ -46,7 +46,8 @@ def generate_response(vector_store, llm_qa, llm_resp, prompts, clientOrg):
             response_ = llm_resp.invoke(
                 prompt.format_prompt(
                     extracted_text = '\n'.join([business_objectives['result'], koc['result'], 
-                                    sow['result'], deliverables['result']]), clientOrg=clientOrg, section=section,
+                                    sow['result'], deliverables['result']]), clientOrg=clientOrg, 
+                                    section=section,
                 ).to_messages(),
                 {"metadata": {"llm": "azure-openai",
                             "section":section}}
