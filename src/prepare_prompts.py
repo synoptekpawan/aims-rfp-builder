@@ -17,7 +17,9 @@ def prepare_prompts(sections, resp_template, llm_resp):
     - as you get the user section, extract its semantically matching content from response template in bullet points.
     - compare the user section and given dictionary of prompts semantically to get the matching reference prompt.
     - prepare a refined prompt using the extracted content and matching reference prompt.
-    - the refined prompt must contain the options to consider external inputs, which is already given in prompts in dictionary.
+    - the refined prompt must contain the options to consider external inputs, 
+        if user section is table of contents add only list_of_section as variable for external inputs, 
+        else it should add only extracted_text as variable for external inputs.
     - there are chances you can fail in extracting content or matching reference prompt based on user section.
     - so validate if extracted content and matching reference prompt are correct with respect to user section, if not redo above steps again.
     - in response give prepared refined prompt for each section, skip the other steps.
