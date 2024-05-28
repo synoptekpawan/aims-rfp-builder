@@ -304,7 +304,7 @@ def create_vector_index(clientOrg, rfp, vector_store_address, vector_store_passw
 ## -------------------------------------------------
 with st.sidebar:
     
-    st.session_state['clientOrg'] = st.text_input("**What is the client organization name?** 🚩")
+    st.session_state['clientOrg'] = st.text_input("**What is the client name?** 🚩")
 
     rfp = st.file_uploader("**Upload RFP request to database** 🚩")
 
