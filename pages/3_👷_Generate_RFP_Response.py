@@ -99,64 +99,94 @@ if 'prepared_prompts' not in st.session_state:
 if 'generated_resp' not in st.session_state:
     st.session_state['generated_resp'] = None
 
+logger.info("Initialized session state")
+
 ## -------------------------------------------------
 ## azure openai deployment and setup
 ## -------------------------------------------------
 @st.cache_resource
 def azure_openai_setup(azure_openai_api_key, azure_endpoint):
-    logger.info("Setting up Azure OpenAI")
-    deployment_gpt4_turbo = 'gpt-4-1106-preview'
-    deployment_gpt4 = 'gpt-4'
-    deployment_gpt35 = 'gpt-3.5-turbo-1106'
-    deployemnt_gpt4_azure = 'gpt-4-aims'
-    deployemnt_gpt35_azure = 'gpt-35-aims'
+    """
+    Set up Azure OpenAI models for QA and response generation.
+    
+    Args:
+        azure_openai_api_key (str): API key for Azure OpenAI.
+        azure_endpoint (str): Azure OpenAI endpoint.
 
-    llm_azure_qa = AzureChatOpenAI( 
-        model_name=deployemnt_gpt4_azure,
-        openai_api_key=azure_openai_api_key,
-        azure_endpoint=azure_endpoint,
-        openai_api_version="2024-04-01-preview",
-        temperature=0,
-        max_tokens=4000,
-        model_kwargs={'seed':123}
-        ) 
+    Returns:
+        tuple: AzureChatOpenAI instances for QA and response generation.
+    """
+    try:
+        logger.info("Setting up Azure OpenAI")
+        deployment_gpt4_turbo = 'gpt-4-1106-preview'
+        deployment_gpt4 = 'gpt-4'
+        deployment_gpt35 = 'gpt-3.5-turbo-1106'
+        deployemnt_gpt4_azure = 'gpt-4-aims'
+        deployemnt_gpt35_azure = 'gpt-35-aims'
 
-    llm_azure_resp = AzureChatOpenAI( 
-        model_name=deployemnt_gpt35_azure,
-        openai_api_key=azure_openai_api_key,
-        azure_endpoint=azure_endpoint,
-        openai_api_version="2024-04-01-preview",
-        temperature=0,
-        max_tokens=8000,
-        model_kwargs={'seed':123}
-        ) 
+        llm_azure_qa = AzureChatOpenAI( 
+            model_name=deployemnt_gpt4_azure,
+            openai_api_key=azure_openai_api_key,
+            azure_endpoint=azure_endpoint,
+            openai_api_version="2024-04-01-preview",
+            temperature=0,
+            max_tokens=4000,
+            model_kwargs={'seed':123}
+            ) 
 
-    logger.info("Azure OpenAI setup completed")
-    return llm_azure_qa, llm_azure_resp
+        llm_azure_resp = AzureChatOpenAI( 
+            model_name=deployemnt_gpt35_azure,
+            openai_api_key=azure_openai_api_key,
+            azure_endpoint=azure_endpoint,
+            openai_api_version="2024-04-01-preview",
+            temperature=0,
+            max_tokens=8000,
+            model_kwargs={'seed':123}
+            ) 
+
+        logger.info("Azure OpenAI setup completed")
+        return llm_azure_qa, llm_azure_resp
+    except Exception as e:
+        logger.exception("Error setting up Azure OpenAI: %s", e)
+        st.error("Failed to set up Azure OpenAI. Please check the logs for details.")
 
 azure_qa, azure_resp = azure_openai_setup(azure_openai_api_key, azure_endpoint)
 
 # @st.cache_resource
 # def openai_setup(openai_api_key):
-#     logger.info("Setting up OpenAI")
-#     deployment_gpt4_turbo = 'gpt-4-1106-preview'
-#     deplyment_gpt4o = 'gpt-4o'
-#     deployment_gpt4 = 'gpt-4'
-#     deployment_gpt35 = 'gpt-3.5-turbo-1106'
-#     deployemnt_gpt4_azure = 'gpt-4-aims'
-#     deployemnt_gpt35_azure = 'gpt-35-aims'
+#     """
+#     Set up OpenAI models for QA and response generation.
+    
+#     Args:
+#         openai_api_key (str): API key for OpenAI.
 
-#     llm_openai = ChatOpenAI(
-#     model_name=deployment_gpt4,
-#     openai_api_key=openai_api_key,
-#     temperature=0,
-#     max_tokens=4000,
-#     model_kwargs={'seed':123}
-#     )
+#     Returns:
+#         tuple: ChatOpenAI instances for QA and response generation.
+#     """
+#     try:
+#         logger.info("Setting up OpenAI")
+#         deployment_gpt4_turbo = 'gpt-4-1106-preview'
+#         deplyment_gpt4o = 'gpt-4o'
+#         deployment_gpt4 = 'gpt-4'
+#         deployment_gpt35 = 'gpt-3.5-turbo-1106'
+#         deployemnt_gpt4_azure = 'gpt-4-aims'
+#         deployemnt_gpt35_azure = 'gpt-35-aims'
 
-#     logger.info("OpenAI setup completed")
-#     return llm_openai
+#         llm_openai = ChatOpenAI(
+#         model_name=deployment_gpt4,
+#         openai_api_key=openai_api_key,
+#         temperature=0,
+#         max_tokens=4000,
+#         model_kwargs={'seed':123}
+#         )
 
+#         logger.info("OpenAI setup completed")
+#         return llm_openai
+    
+#     except Exception as e:
+#         logger.exception("Error setting up OpenAI: %s", e)
+#         st.error("Failed to set up OpenAI. Please check the logs for details.")
+    
 # llm_openai_ = openai_setup(openai_api_key)
 
 ## -------------------------------------------------
@@ -164,16 +194,31 @@ azure_qa, azure_resp = azure_openai_setup(azure_openai_api_key, azure_endpoint)
 ## -------------------------------------------------
 @st.cache_resource
 def azureai_search_setup(azure_endpoint, azure_openai_api_key):
-    logger.info("Setting up Azure AI search")
-    azure_deployment='embeddings-aims'
-    embeddings = AzureOpenAIEmbeddings(
-        azure_deployment=azure_deployment,
-        openai_api_version="2024-04-01-preview",
-        azure_endpoint=azure_endpoint,
-        api_key=azure_openai_api_key,
-    )
-    logger.info("Azure AI search setup completed")
-    return embeddings
+    """
+    Set up Azure AI search with embeddings.
+
+    Args:
+        azure_endpoint (str): Azure search endpoint.
+        azure_openai_api_key (str): API key for Azure OpenAI.
+
+    Returns:
+        AzureOpenAIEmbeddings: Embeddings instance.
+    """
+    try:
+        logger.info("Setting up Azure AI search")
+        azure_deployment='embeddings-aims'
+        embeddings = AzureOpenAIEmbeddings(
+            azure_deployment=azure_deployment,
+            openai_api_version="2024-04-01-preview",
+            azure_endpoint=azure_endpoint,
+            api_key=azure_openai_api_key,
+        )
+        logger.info("Azure AI search setup completed")
+        return embeddings
+    
+    except Exception as e:
+        logger.exception("Error setting up Azure AI search: %s", e)
+        st.error("Failed to set up Azure AI search. Please check the logs for details.")
 
 embedds = azureai_search_setup(azure_endpoint, azure_openai_api_key)
 
@@ -182,6 +227,18 @@ embedds = azureai_search_setup(azure_endpoint, azure_openai_api_key)
 ## -------------------------------------------------
 @st.cache_resource
 def create_vector_index(clientOrg, rfp, vector_store_address, vector_store_password):
+    """
+    Create a vector index for the given client organization and upload the RFP document.
+
+    Args:
+        clientOrg (str): Client organization name.
+        rfp (UploadedFile): RFP document.
+        vector_store_address (str): Vector store address.
+        vector_store_password (str): Vector store password.
+
+    Returns:
+        AzureSearch: Vector store instance.
+    """
     logger.info("Creating vector index for client organization: %s", clientOrg)
     index_name = "rfp-request-" + str(clientOrg).lower()
     try:
@@ -318,17 +375,15 @@ with col2:
                         extracted_list.insert(value_index, 'title page')
                         extracted_list = [ele.upper() for ele in extracted_list]
                         st.session_state['sections'] = extracted_list
-                        # st.write(st.session_state['sections'])
-                        st.info("Selected Sections")
-                        for section in st.session_state['sections']:
-                            st.markdown("- "+section)
+                        # st.info("Selected Sections")
+                        logger.info("Selected Sections")
+
                     else:
                         extracted_list = [ele.upper() for ele in extracted_list]
                         st.session_state['sections'] = extracted_list
-                        # st.write(st.session_state['sections'])
                         # st.info("Selected Sections")
-                        # for section in st.session_state['sections']:
-                        #     st.markdown("- "+section)
+                        logger.info("Selected Sections")
+                        
 
             if st.session_state['sections']:
                 initial_sections = st.session_state['sections'][:]  # Make a copy of the original sections
@@ -347,14 +402,17 @@ with col2:
                 if new_sections or deleted_sections:
                     if deleted_sections:
                         st.success(f"Deleted sections: {', '.join(deleted_sections)}")
+                        logger.info(f"Deleted sections: {', '.join(deleted_sections)}")
                     if new_sections:
                         st.success(f"New sections added: {', '.join(new_sections)}")
+                        logger.info(f"New sections added: {', '.join(new_sections)}")
                         # Render a text area for each new section
                         for section in new_sections:
                             additional_info = st.text_area(f"Input for {section}", key=f'text_area_{section}')
                             section_dict[section] = additional_info  # Update the dictionary with the input
                 else:
                     st.success("No changes made to the sections")
+                    logger.info("No changes made to the sections")
                 if st.button('Build RFP Response', key='button2'):
                     st.session_state['section_dict'] = section_dict
                     # st.write(st.session_state['section_dict'])
@@ -365,6 +423,8 @@ with col2:
                             resp_template=st.session_state['template'],
                             llm_resp=azure_qa)
                 st.session_state['prepared_prompts'] = prepared_prompts
+                st.success("Prompts Prepared")
+                logger.info("Prompts Prepared")
                 # st.write(st.session_state['prepared_prompts'])
                 
                 if st.session_state['prepared_prompts']:
@@ -374,6 +434,8 @@ with col2:
                                                         clientOrg=st.session_state['clientOrg'])
                     # st.write('\n\n'.join([key+'\n', values+'\n']) for key, values in generated_resp.items())
                     st.session_state['generated_resp'] = generated_resp
+                    st.success("Generated response")
+                    logger.info("Generated response")
         except:
             st.error("Connection aborted. Please generate response template again")
             logger.exception("message")
