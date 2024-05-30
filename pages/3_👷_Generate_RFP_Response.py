@@ -31,6 +31,7 @@ import ast
 import json
 import re
 import pypandoc
+import base64
 
 ## -------------------------------------------------
 ## Configure logging
@@ -98,6 +99,12 @@ if 'prepared_prompts' not in st.session_state:
 
 if 'generated_resp' not in st.session_state:
     st.session_state['generated_resp'] = None
+
+if 'doc_generated' not in st.session_state:
+    st.session_state['doc_generated'] = False
+
+if 'bio' not in st.session_state:
+    st.session_state['bio'] = None
 
 logger.info("Initialized session state")
 
@@ -445,11 +452,42 @@ with col2:
 
 if st.session_state['generated_resp']:
     try:
-        # response = '\n\n'.join([values for key, values in st.session_state['generated_resp'].items()])
+        ref_doc = r'./reference_docs/reference.docx'
+        response = '\n\n'.join([values for key, values in st.session_state['generated_resp'].items()])
         st.write(st.session_state['generated_resp'])
+        output = pypandoc.convert_text(response, 
+                                               'docx', 
+                                               format='markdown+multiline_tables', 
+                                               outputfile=r'./output_files/'+st.session_state['clientOrg']+'.docx', 
+                                               extra_args=['--reference-doc=' + ref_doc, 
+                                                           '-s'])
+        doc = Document(r'./output_files/'+st.session_state['clientOrg']+'.docx')
+        bio = io.BytesIO()
+        doc.save(bio)
+        st.session_state['bio'] = bio.getvalue()
+        st.session_state['doc_generated'] = True
         
     except:
         st.sidebar.error("Connection aborted. Please generate response template again")
         logger.exception("message")
+
+if st.session_state['doc_generated']:
+    # st.sidebar.download_button(
+    #     label="Click here to download",
+    #     data=st.session_state['bio'],
+    #     file_name=st.session_state['clientOrg']+'.docx',
+    #     mime="docx"
+    # ) # "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    
+    # Convert the BytesIO to a base64 string
+    b64 = base64.b64encode(bio.getvalue()).decode()
+
+    # Create a download link
+    href = f'<a href="data:application/octet-stream;base64,{b64}" download="{st.session_state["clientOrg"]}.docx">Click here to download</a>'
+    st.sidebar.markdown(href, unsafe_allow_html=True)
+
+    # After the download button is clicked, delete the file
+    if os.path.exists(r'./output_files/'+st.session_state['clientOrg']+'.docx'):
+        os.remove(r'./output_files/'+st.session_state['clientOrg']+'.docx')
 
 logger.info("-------------------------------------------------------------------")
