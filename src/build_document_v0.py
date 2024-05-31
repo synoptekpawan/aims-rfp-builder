@@ -7,6 +7,7 @@ import re
 import json
 import time
 from langchain.chains import RetrievalQA
+# @st.cache_resource() #suppress_st_warning=True, allow_output_mutation=True
 def generate_response(vector_store, llm_qa, llm_resp, prompts, clientOrg):
 
     qa_chain = RetrievalQA.from_chain_type(
