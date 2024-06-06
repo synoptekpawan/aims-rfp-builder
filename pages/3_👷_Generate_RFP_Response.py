@@ -2,6 +2,8 @@
 ## load required packages
 ## -------------------------------------------------
 import streamlit as st
+import pandas as pd
+from utils.utils import save_dict_with_markdown_to_word
 import logging
 from streamlit_extras.app_logo import add_logo
 from streamlit_extras.colored_header import colored_header
@@ -82,6 +84,9 @@ logger.info("Page configuration and options set up")
 if 'clientOrg' not in st.session_state:
     st.session_state['clientOrg'] = ''
 
+if 'docTitle' not in st.session_state:
+    st.session_state['docTitle'] = ''
+
 if 'vector_store' not in st.session_state:
     st.session_state['vector_store'] = None
 
@@ -129,10 +134,11 @@ def azure_openai_setup(azure_openai_api_key, azure_endpoint):
         deployment_gpt4 = 'gpt-4'
         deployment_gpt35 = 'gpt-3.5-turbo-1106'
         deployemnt_gpt4_azure = 'gpt-4-aims'
+        deployemnt_gpt4o_azure = 'gpt-4o'
         deployemnt_gpt35_azure = 'gpt-35-aims'
 
         llm_azure_qa = AzureChatOpenAI( 
-            model_name=deployemnt_gpt4_azure,
+            model_name=deployemnt_gpt4o_azure,
             openai_api_key=azure_openai_api_key,
             azure_endpoint=azure_endpoint,
             openai_api_version="2024-04-01-preview",
@@ -142,12 +148,12 @@ def azure_openai_setup(azure_openai_api_key, azure_endpoint):
             ) 
 
         llm_azure_resp = AzureChatOpenAI( 
-            model_name=deployemnt_gpt35_azure,
+            model_name=deployemnt_gpt4o_azure,
             openai_api_key=azure_openai_api_key,
             azure_endpoint=azure_endpoint,
             openai_api_version="2024-04-01-preview",
             temperature=0,
-            max_tokens=8000,
+            max_tokens=4000,
             model_kwargs={'seed':123}
             ) 
 
@@ -313,6 +319,8 @@ with st.sidebar:
     
     st.session_state['clientOrg'] = st.text_input("**What is the client name?** 🚩")
 
+    st.session_state['docTitle'] = st.text_input("**Provide title for the response document** 🚩")
+
     rfp = st.file_uploader("**Upload RFP request to database** 🚩")
 
     if st.session_state['clientOrg']:
@@ -323,9 +331,10 @@ with st.sidebar:
 ## -------------------------------------------------
 ## Generate RFP App
 ## -------------------------------------------------
-col1, col2 = st.columns([3.5, 1.8])
+col1, col2 = st.columns([2, 3.5])
 with col1:
     with st.container(border=True):
+        # Define a function to handle the button click
         try:
             if st.button("Get Response Template", key='button1'):
                 # st.write(st.session_state)
@@ -344,12 +353,16 @@ with col1:
                     
                     st.info("Response template given in RFP request:")
                     template = qa_chain({"query": """
-                                        -Extract document related to Technical Proposal from the contents of proposals and submittals 
+                                        -Extract document related to Technical Proposal from the contents of proposals and submittals.
+                                        -Extract the submission guidelines from this RFP, including the format, required documents, and any specific instructions.
                                         -If above document not found then check for vendor response specifications.
+                                        -If above document not found then check for response submission format or response requirements.
                                         -If above document not found then check for response requirements.
+                                        -If above document not found then check for question and answers which outlines response template.
                                         -There are chances you can miss information as it might be on different pages.
                                         -So validate if information is complete, if not redo above steps again till you get all information.
-                                        -Summarize the extracted content using headers and subheaders for clarity."""})
+                                        -Provide a detailed breakdown of each section required in the RFP response, including sub-sections.
+                                        -List all the documents and materials that need to be submitted as per this RFP."""})
                     cleaned_text = re.sub(r'\[doc \d\.\d-\d\]', '', template['result'].lower())
                     st.session_state['template'] = cleaned_text    
                     logger.info("Response template generated for client organization: %s", st.session_state['clientOrg'])
@@ -394,16 +407,22 @@ with col2:
 
             if st.session_state['sections']:
                 initial_sections = st.session_state['sections'][:]  # Make a copy of the original sections
-                edited_sections = st.data_editor(data=st.session_state['sections'], 
+                # print(initial_sections)
+                section_df = pd.DataFrame({'Sections': initial_sections})
+                section_df['User Inputs'] = ""
+                # print(section_df)
+                edited_df = st.data_editor(data=section_df, 
                                                 num_rows="dynamic", use_container_width=True)
-                edited_sections = [str_.strip() for str_ in edited_sections if str_.strip()]
-                # User clicks the 'Done Editing' button to finalize changes
-                # Find new sections and deleted sections
+                edited_df_list = edited_df.to_dict(orient="records")
+                # print("edited_df_list",edited_df_list)
+
+                edited_sections = [item['Sections'].strip() for item in edited_df_list if item['Sections'].strip()]
+                user_inputs = [item['User Inputs'].strip() for item in edited_df_list]
+
+                section_dict = {section: input_ for section, input_ in zip(edited_sections, user_inputs)}
+
                 new_sections = [section for section in edited_sections if section not in initial_sections]
                 deleted_sections = [section for section in initial_sections if section not in edited_sections]
-
-                # Prepare the section dictionary
-                section_dict = {section: '' for section in edited_sections}  # Initialize dictionary with empty strings
 
                 # Update the session state based on changes
                 if new_sections or deleted_sections:
@@ -414,12 +433,34 @@ with col2:
                         st.success(f"New sections added: {', '.join(new_sections)}")
                         logger.info(f"New sections added: {', '.join(new_sections)}")
                         # Render a text area for each new section
-                        for section in new_sections:
-                            additional_info = st.text_area(f"Input for {section}", key=f'text_area_{section}')
-                            section_dict[section] = additional_info  # Update the dictionary with the input
+                        # for section in new_sections:
+                        #     additional_info = st.text_area(f"Input for {section}", key=f'text_area_{section}')
+                        #     section_dict[section] = additional_info  # Update the dictionary with the input
+                
+                    if section_dict:
+                        on = st.toggle("Synoptek Sections")
+                        if on:
+                            default_synoptek_sections = ['SYNOPTEK OVERVIEW','SYNOPTEK\'s CULTURE AND APPROACH TO TALENT MANAGEMENT',
+                                        'CASE STUDIES','QUALITY SECURITY AND COMPLIANCE',
+                                        'ASSUMPTIONS AND CLIENT RESPONSIBILITIES']
+                            
+                            sections = st.multiselect(label = '## **What sections to be included?**',
+                                       options = ['SYNOPTEK OVERVIEW','SYNOPTEK\'s CULTURE AND APPROACH TO TALENT MANAGEMENT',
+                                        'CASE STUDIES','QUALITY SECURITY AND COMPLIANCE',
+                                        'ASSUMPTIONS AND CLIENT RESPONSIBILITIES'],
+                                        default=default_synoptek_sections, 
+                                        key='sections0')
+                            
+                            synoptek_section_dict = {sec: "" for sec in sections}
+                            section_dict.update(synoptek_section_dict)
+                            print("section_dict", section_dict)
+
                 else:
                     st.success("No changes made to the sections")
                     logger.info("No changes made to the sections")
+
+                
+                
                 if st.button('Build RFP Response', key='button2'):
                     st.session_state['section_dict'] = section_dict
                     # st.write(st.session_state['section_dict'])
@@ -452,20 +493,45 @@ with col2:
 
 if st.session_state['generated_resp']:
     try:
-        ref_doc = r'./reference_docs/reference.docx'
-        response = '\n\n'.join([values for key, values in st.session_state['generated_resp'].items()])
         st.write(st.session_state['generated_resp'])
-        output = pypandoc.convert_text(response, 
-                                               'docx', 
-                                               format='markdown+multiline_tables', 
-                                               outputfile=r'./output_files/'+st.session_state['clientOrg']+'.docx', 
-                                               extra_args=['--reference-doc=' + ref_doc, 
-                                                           '-s'])
+        ref_doc = r'./reference_docs/reference_doc_v1.docx'
+
+        save_dict_with_markdown_to_word(dictionary = st.session_state['generated_resp'], 
+                                        file_path = r'./output_files/'+st.session_state['clientOrg']+'.docx',
+                                        title=st.session_state['docTitle'].upper())
+
+        # code for enable document download
         doc = Document(r'./output_files/'+st.session_state['clientOrg']+'.docx')
         bio = io.BytesIO()
         doc.save(bio)
+    
         st.session_state['bio'] = bio.getvalue()
         st.session_state['doc_generated'] = True
+
+        # response = '\n\n'.join([values for key, values in st.session_state['generated_resp'].items()])
+        
+        # tpl = DocxTemplate(ref_doc)
+        # context = {
+        #             "date_today": datetime.now().strftime(format='%B %d, %Y'),
+        #             "mspOrg":"SYNOPTEK LLC",
+        #             "clientOrg":st.session_state["clientOrg"],
+        #             "title": st.session_state["docTitle"],
+        #             'response': response,
+        #             }
+        # jinja_env = jinja2.Environment(autoescape=True)
+        # tpl.render(context, jinja_env)
+        # tpl.save(r'./output_files/'+st.session_state['clientOrg']+'.docx')
+
+        # doc = Document()
+
+        # # Add a title to the document
+        # doc.add_heading('Content', level=1)
+
+        # # Iterate over the dictionary items and add them to the document
+        # for key, value in st.session_state['generated_resp'].items():
+        #     doc.add_paragraph(f'{key}: {value}')
+
+        # doc.save(r'./output_files/'+st.session_state['clientOrg']+'.docx')
         
     except:
         st.sidebar.error("Connection aborted. Please generate response template again")
@@ -480,7 +546,7 @@ if st.session_state['doc_generated']:
     # ) # "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     
     # Convert the BytesIO to a base64 string
-    b64 = base64.b64encode(bio.getvalue()).decode()
+    b64 = base64.b64encode(st.session_state['bio']).decode()
 
     # Create a download link
     href = f'<a href="data:application/octet-stream;base64,{b64}" download="{st.session_state["clientOrg"]}.docx">Click here to download</a>'
