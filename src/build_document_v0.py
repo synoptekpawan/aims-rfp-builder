@@ -3,6 +3,7 @@ from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 import streamlit as st
 from utils.all_prompts_templates import *
+from prompts.all_prompts_v1 import *
 import re
 import json
 import time
@@ -20,6 +21,7 @@ def generate_response(vector_store, llm_qa, llm_resp, prompts, clientOrg):
     koc = qa_chain({"query":"extract detailed key opportunities and challenges from the provided document. Skip Pricing Model & Case Studies related documents."})
     sow = qa_chain({"query":"extract detailed scope of work for all phases from the provided document. Skip Deliverables, Pricing Model & Case Studies related documents."})
     deliverables = qa_chain({"query":"extract detailed deliverables  for al phases from the provided document. Skip Scope of work, Pricing Model & Case Studies related documents."})
+    
     
     st.sidebar.write("**Time taken to retrieve relevant documents in mins**")
     st.sidebar.write(round((time.time() - start_time)/60, 2))
@@ -40,6 +42,54 @@ def generate_response(vector_store, llm_qa, llm_resp, prompts, clientOrg):
                             "section":section}}
             )
             response[section] = response_.content
+
+        elif section == 'SYNOPTEK OVERVIEW':
+            synoptek_overview_txt = open(r"./static_texts/synoptek_overview.txt", "r", encoding="utf8")
+            # prompt = prompt_builder_static(prompt_template=so_prompt_template(),section=section, clientOrg=clientOrg)
+            # # get a chat completion from the formatted messages
+            # response_ = llm_resp.invoke(
+            #     prompt.format_prompt(
+            #         extracted_text=synoptek_overview_txt.read(), clientOrg=clientOrg, 
+            #         section=section, domain=domain['result']
+            #     ).to_messages(),
+            #     {"metadata": {"llm": "azure-openai",
+            #                 "section":section}}
+            # )
+            # response[section] = response_.content
+            response[section] = synoptek_overview_txt.read()
+
+        elif section == 'SYNOPTEK\'s CULTURE AND APPROACH TO TALENT MANAGEMENT':
+            synoptek_talent_management_txt = open(r"./static_texts/synoptek_talent_management.txt", "r", encoding="utf8")    
+            # prompt = prompt_builder_static(prompt_template=sc_prompt_template(),section=section, clientOrg=clientOrg)
+            # # get a chat completion from the formatted messages
+            # response_ = llm_resp.invoke(
+            #     prompt.format_prompt(
+            #         extracted_text=synoptek_talent_management_txt.read(), clientOrg=clientOrg, 
+            #         section=section, domain=domain['result']
+            #     ).to_messages(),
+            #     {"metadata": {"llm": "azure-openai",
+            #                 "section":section}}
+            # )
+            # response[section] = response_.content
+            response[section] = synoptek_talent_management_txt.read()
+
+        elif section == 'CASE STUDIES':
+            # Open the JSON file
+            with open(r"./static_texts/case_studies.json") as f:
+                data = json.load(f)
+                result_string = ""
+
+                for key, value in data["HealthCare"].items():
+                    result_string += f"\n{key}\n{value[0]}\n"
+            response[section] = result_string
+
+        elif section == 'QUALITY SECURITY AND COMPLIANCE':
+            quality_control_txt = open(r"./static_texts/quality_control.txt", "r", encoding="utf8")    
+            response[section] = quality_control_txt.read()
+
+        elif section == 'ASSUMPTIONS AND CLIENT RESPONSIBILITIES':
+            assumptions_txt = open(r"./static_texts/assumptions.txt", "r", encoding="utf8")    
+            response[section] = assumptions_txt.read()
         
         else:
             prompt = prompt_builder_ai(prompt_template=prompt_template,section=section, clientOrg=clientOrg)

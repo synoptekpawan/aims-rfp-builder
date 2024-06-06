@@ -39,6 +39,7 @@ def prepare_prompts(sections, resp_template, llm_resp):
                             template=template
                             )
     
+    
     for section, additional_info in sections.items():
         section_prompt = prompt.format(
                                     section=section,
@@ -52,6 +53,7 @@ def prepare_prompts(sections, resp_template, llm_resp):
         prompts_dict[section] = new_section_prompt_
 
     return prompts_dict
+
         
 
 
