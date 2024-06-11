@@ -529,15 +529,15 @@ if st.session_state['generated_resp']:
         cleaned_rfp_resp = {key:re.sub(r'^Conclusion\b.*(?:\n.*)*', '', str(values)) for key, values in cleaned_rfp_resp.items()}
 
         # ---
-        cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?Summary,\s', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+        # cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?Summary,\s', '', str(values)) for key, values in cleaned_rfp_resp.items()}
 
-        cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?Summary\b.*(?:\n.*)*', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+        # cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?Summary\b.*(?:\n.*)*', '', str(values)) for key, values in cleaned_rfp_resp.items()}
 
-        cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?summary,\s', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+        # cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?summary,\s', '', str(values)) for key, values in cleaned_rfp_resp.items()}
 
-        cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?summary\b.*(?:\n.*)*', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+        # cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?summary\b.*(?:\n.*)*', '', str(values)) for key, values in cleaned_rfp_resp.items()}
 
-        cleaned_rfp_resp = {key:re.sub(r'^Summary\b.*(?:\n.*)*', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+        # cleaned_rfp_resp = {key:re.sub(r'^Summary\b.*(?:\n.*)*', '', str(values)) for key, values in cleaned_rfp_resp.items()}
 
         # cleaned_text = re.sub(r'\[doc \d\.\d-\d\]', '', template['result'].lower())
 
