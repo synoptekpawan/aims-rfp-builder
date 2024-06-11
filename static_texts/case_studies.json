@@ -1,5 +1,5 @@
 {
-    "HealthCare":{
+    "Health Care":{
         "meddata_group":["Business Need:\nLegacy systems were incapable of handling huge data inputs required for managing omnichannel HCP marketing programs. The degraded end-user experience drove the need to modernize the application and develop it as a cloud-native application to enhance data management, establish a robust application architecture, and make the app extremely user-friendly.\n\nSolutions and Approach:\nSynoptek provided a suite of Professional IT Services to help the firm cater to the needs of their customers and deliver data to fuel their omnichannel HCP marketing programs. We enabled them with robust technology solutions and have been providing cutting-edge Application Development, BI, Data Engineering, and Analytics Services.\nComplete overhaul of Data Management System and underlying architecture including:\n- Delivery of Data Engineering and BI services using advanced Agile methodologies and the latest tech frameworks\n- Implementation of Data Cleansing systems\n- Integration with a large number of clinical databases\n\nBusiness Results:\nSynoptek's Application Modernization Services have helped the firm enjoy better application usability, security, and performance and which improved customer satisfaction and retention also while allowing the firm to focus on the business.\nThe completely cloud-native application now uses AWS Serverless technology and enables the firm to:\n- Increase workforce productivity due to fast and accurate access to necessary data\n- Enjoy cross-platform support and focus efforts on business enhancements rather than daily production support\n- Experience performance improvement as high as 95%\n- Improve satisfaction, productivity, and overall experience for all stakeholders and users\n- Enjoy enhancements in performance and security as well as cross-platform support using Microservices\n- Increase API development speed and quality with reduced bugs\n- Reduce SQL query execution time from 1 hour to 2 minutes\n- Reduce manual intervention to zero via automation and reduce delivery speed more than 99%"],
         "wellcove":["Business Need:\nWellcove by CHCS Services provides Third-Party Administration for the world's leading insurance brands. They have been serving as the nation’s leading full-service senior market solutions provider for over 25 years. As the leading third-party administrator, they operate with a strategic mission and vision and become an extension of the client’s organization and brand. CHCS Services was purchased by a private equity firm and engaged Synoptek as a managed services provider to initially move their technology infrastructure from the previous owner’s data center to a new AWS virtual private cloud design and configured by Synoptek. In addition, the required immediate development resources to expedite in-flight application initiatives.\n\nSolutions and Approach:\nSynoptek offered our shared pool of quality resources for list of services and technologies which are bulleted below. Wellcove benefited from a flexible model for upscaling or downsizing the team based on their capacity needs. All development KPIs and standards were set by Wellcove’s development management team were adopted by Synoptek developers and integrated into the Synoptek platform allowing for best practices and maintaining HIPAA compliance plus high standards for data integrity and security. These are services and technologies delivered by Synoptek to Wellcove:\n\n• Project management\n• Quality assurance testing\n• Managed AWS services\n• Microsoft .Net\n• Java\n• Database administration\n• Workfusion development\n• OpenText Exstream development\n• SSIS / SSRS\n\nBusiness Results:\nSynoptek global developers were rapidly onboarded and trained on the Wellcove development standards resulting in an on-time and successful release of their planned backlog while achieving high delivery standards."],
         "medstar_health":["Business Need:\nClient is an integrated health care system offering patients a continuum of coordinated and high-quality care. In addition to its two academic medical centers, the system includes community and specialty hospitals, a health insurance plan, a physician network, community health centers, home health and long-term care services, and other health care entities. Client is a non-profit organization that is committed to patient care, research, teaching, and service to the community. Client was launching program to create a better patient experience, enabling better visibility and quality of care to patients. The initiative was focused on implementing a mobile app to integrate easily with various medical devices to capture patient vitals.\n\nSolutions and Approach:\nSynoptek developed a health assistance mobile app that helps the users to manage their patients’ health data by connecting various devices to measure blood glucose level, blood pressure, weight, and other activities.  The mobile app fetches patient generated health data from medical devices, Samsung and Apple Healthkits and various apps from within the Validic marketplace and syncs the data onto the Validic portal as well as the middleware application developed by Synoptek to be used by the administrators at Connected Health.  This is a typical Internet of Things (IoT) case where the readings are captured from medical devices such as VitalSnap, Bluetooth, Samsung Healthkit, Apple Healthkit, and Validic marketplace, to capture vitals like glucose, blood pressure and pulse and activity.\n\nBusiness Results:\n• Patients’ vitals can be easily shared with the doctors before they visit.\n• Records stored at centralized location that allows the doctor to check the patient’s history.\n• Users can easily check and store patients’ vitals from multiple devices at a central location, share with doctors, check their history and manage their data easily, from anywhere.\n• Users can easily sync their readings in offline and online modes.\n• Monthly reports generated help doctors to keep a track of patients’ health.\n• Customer facing data is stored safely and correctly.\n• IoT captures data correctly and prevents data loss."],
@@ -10,5 +10,899 @@
     "Finance":{
         "xyz_finance":["Business Need:\nLegacy systems were incapable of handling huge data inputs required for managing omnichannel HCP marketing programs. The degraded end-user experience drove the need to modernize the application and develop it as a cloud-native application to enhance data management, establish a robust application architecture, and make the app extremely user-friendly.\n\nSolutions and Approach:\nSynoptek provided a suite of Professional IT Services to help the firm cater to the needs of their customers and deliver data to fuel their omnichannel HCP marketing programs. We enabled them with robust technology solutions and have been providing cutting-edge Application Development, BI, Data Engineering, and Analytics Services.\nComplete overhaul of Data Management System and underlying architecture including:\n- Delivery of Data Engineering and BI services using advanced Agile methodologies and the latest tech frameworks\n- Implementation of Data Cleansing systems\n- Integration with a large number of clinical databases\n\nBusiness Results:\nSynoptek's Application Modernization Services have helped the firm enjoy better application usability, security, and performance and which improved customer satisfaction and retention also while allowing the firm to focus on the business.\nThe completely cloud-native application now uses AWS Serverless technology and enables the firm to:\n- Increase workforce productivity due to fast and accurate access to necessary data\n- Enjoy cross-platform support and focus efforts on business enhancements rather than daily production support\n- Experience performance improvement as high as 95%\n- Improve satisfaction, productivity, and overall experience for all stakeholders and users\n- Enjoy enhancements in performance and security as well as cross-platform support using Microservices\n- Increase API development speed and quality with reduced bugs\n- Reduce SQL query execution time from 1 hour to 2 minutes\n- Reduce manual intervention to zero via automation and reduce delivery speed more than 99%"]
         
+    },
+
+    "Business Application": {
+        "d365_fo_implementation_1": {
+            "AboutCustomer": "A leading global provider of customized supply chain management solutions.",
+            "BusinessNeed": "The client wanted to upgrade its existing Dynamics AX 2009 system to Dynamics 365 for Operations due to several concerns: \n- Optimize supply chain management processes\n- Control and streamline inventory\n- Increase visibility throughout the supply chain\n- Improve customer service",
+            "SolutionAndApproach": "We initially performed data migration from AX 2009 to D365FO. Implemented key modules: \n- Inventory Management\n- Procurement and Sourcing\n- Finance Management\n- Time and Attendance\n- Product Information Management\n- Credit and Collections\n- Expense Management\n- HR Management.\nAlso helped the client setup TQM to provide real-time quality control of products, suppliers, customers, and all other business processes. Integrated the solution with Power BI for out-of-the-box reports.",
+            "SupplyChainCapabilities": {
+                "Automation": "Procure to pay and order to cash cycles\n",
+                "Integration": "Native integration with Advanced Warehousing functionality in Dynamics 365 for Operations for Advanced Shipment Notice (ASN) and Goods Receipt Note (GRN) generation\n",
+                "WarehouseActivities": "Automation and integration of warehouse, 3PL transactions, and activities"
+            },
+            "Benefits": {
+                "FinancialReporting": "Fast and accurate financial reporting\n",
+                "Visibility": "Enhanced visibility across supply chain and business",
+                "StreamlinedProcesses": "Streamlined project setup processes",
+                "CustomerService": "Improved customer service",
+                "Insights": "Better insight into clients and prospects"
+            }
+        },
+        "d365_fo_implementation_2": {
+            "AboutCustomer": "A leading manufacturer of custom chemical solutions, serving customers since 1920.",
+            "BusinessNeed": "The existing AX 2009 system is not able to manage the current requirement and business expansion, resulting in lengthy outages. Client wanted to expand the capabilities of the system by implementing Dynamics 365 for Finance and Operations.",
+            "SolutionAndApproach": "Advanced Warehouse Management System, Transportation – Third party transportation updates, Real-time Inventory Management, Financial Posting Profiles related to Inventory, Vendor, Customer, Purchase Order, Receipts, Production Order Picking list consumption, Production Order Posting, Integration with BarTender, Integration with Dynamics CRM",
+            "Benefits": {
+                "InventoryVisibility": "See a full-picture view of inventory across all warehouses; including warehouses too small for the “advanced” Warehouse Management features.",
+                "Reconciliation": "Reconcile Inventory totals against General Ledger Inventory main accounts (ledger accounts)",
+                "AccuracyAndEfficiency": "Increase accuracy and improve efficiency",
+                "ProductionControl": "Real-time Production Control and inventory visible in a single screen for a single legal entity",
+                "ReconciliationPlatform": "Accurately reconcile ledger against sub-ledgers on a single platform"
+            }
+        },
+        "d365_fo_implementation_3": {
+            "AboutCustomer": "A global manufacturer and marketer of geosynthetic barrier systems, stabilization products, and drainage systems, acquired by a Canadian-based company in order to lead the geo-synthetics industry.",
+            "BusinessNeed": "The client had Dynamics AX 2009 system. After being acquired, in order to manage their business operations efficiently, they decided to implement D365 for Finance and Operations Manufacturing solution at the parent company.",
+            "SolutionAndApproach": "For ensuring the manufacturing process functions standalone modules implemented include Accounts Receivable, Inventory Management, Warehouse Management, Production, Master Planning, and Quality Management, including certain customizations. Rollout at other legal entities including USA, Thailand, China, Germany, and Egypt was considered after the main implementation. Dynamics 365 manufacturing deployment replaced the existing applications - Quote system, Sinbad – quality system, production system, scheduling system. D365 for Finance and Operations was also integrated with their existing Ross ERP system and Pivotal/Sugar CRM system. Developed dashboards and KPIs using Power BI.",
+            "Benefits": {
+                "ProcessImprovement": "Business processes improvement",
+                "DataManagement": "High volume data managed easily",
+                "BusinessIntelligence": "Real-time business intelligence capabilities",
+                "StreamlinedOperations": "Streamlined business operations in a cost-effective manner"
+            }
+        }
+    },
+
+    "Business Intelligence": {
+    "logistics_carrier_organization": {
+    "ProjectDescription": "Synoptek migrated a logistics carrier / freight organization’s SaaS based operational system to their custom application managing day to day operations and activities and they needed a Data Warehouse and BI solution implementation from multiple sources for their reports and dashboards. Synoptek analyzed legacy and existing operational custom applications as data sources for their dashboard requirements, defined definitions of their entities, and defined their reports and KPI’s along with their calculations. Synoptek implemented a Data Warehouse solution where raw data is periodically staged from sources in a staging area. Synoptek developed dashboards for sales, carriers, and executive users with security. These reports are interactive and allow for self-service capabilities.",
+
+    "TechnologyUsed": ["Power BI Pro", "Synoptek Cloud Servers", "SQL Server 2016", "SSIS", "SSAS Tabular", "Power BI Data Gateway"]
+    },
+    "industrial_motor_manufacturer": {
+
+    "ProjectDescription": "Synoptek worked with a client to analyze the sensor’s collected data and apply advanced analytics to predict any abrupt event like motor failure or early maintenance. Synoptek collected data from the sensor and from past performance of similar motors and determined how to detect failure. Alarms were configured if any of the values of temperature and acceleration went beyond the threshold. Synoptek is working to build in house capabilities to capture more data from the machines. The following dashboard was built to support this prediction."
+    },
+    "non_profit_ecommerce_data_warehouse": {
+
+    "AboutCustomer": "A nonprofit organization that has been serving the community for more than 55 years. It is a network of 155 community-based, autonomous organizations in the United States and Canada with a presence in 12 other countries.",
+
+    "BusinessNeed": "The organization needed an integrated application modernization and business intelligence solution to revamp their website as well as have a centralized reporting platform. They were looking for a complete solution to restructure their reporting architecture by bringing in new tools and technologies which would help them identify their business gaps. There was a need to reduce manual data preparations, improve performance, introduce interactive data visualizations and dashboards. The Non-profit organization partnered with Synoptek to upgrade their existing architecture for a unique reporting experience which can be utilized by business users to evaluate and take business decisions.",
+
+    "SolutionAndApproach": "The transactional data from the Ecommerce website was captured in a SQL Server database. The data from this database was replicated to another SQL Server database which was utilized as a staging database for reporting purposes. The client had a need to implement a business intelligence solution on top of a data warehouse to facilitate effective monitoring of sales, track key KPIs and target tracking. The client engaged with Synoptek for implementing a BI solution with a focus on data visualization and dashboards.",
+
+    "ImplementedSolutions": ["Data warehouse solution using Azure cloud services (IaaS/PaaS)", "Power BI reports and dashboards"],
+    
+    "Benefits": {
+    "ReductionInDataRefreshTime": "Cut down in Cloud costs by $150/month",
+    "DataIntegrityRestoration": "Restore data integrity",
+    "DataLoadPerformanceImprovement": "Reduce data load time and improved data performance by 75%",
+    "DataAccessRestriction": "Restrict data access",
+    "DataLoadPerformanceImprovement2": "Improved data load performance by ~85%",
+    "DataModelSizeReduction": "Reduce data model size to 5x to ~500MB"
     }
+    }
+    },
+
+    "Production Development": {
+        "non_profit_ecommerce_marketplace": {
+            "BusinessNeed": "The non-profit e-commerce marketplace was rapidly growing, achieving almost $1 million in sales per day. Yet, their e-commerce system was over 15 years old, and the organization was supported by a small, 3-person team. This led to several challenges in evolving the design and functionality of the platform to keep up with the pace of the business. Although the client was growing rapidly, the technology infrastructure was not scaling at the same pace. They did not have the required skills in-house to evolve their platform, and the absence of a modern mobile application made matters worse. Looking at the future growth perspective, the e-commerce client was seeking opportunities to modernize their website, ensure scalability and usability, increase performance, and reach new markets.",
+            "SolutionAndApproach": "Since the beginning of the engagement, Synoptek spent valuable time engaging with the e-commerce team to analyze the marketplace and understand existing code to arrive at the most accurate level of effort required to meet their objectives as well as to allow them to scale and modernize their current platform. We also curated a 5x5x5 vision for the client, which meant 5x revenue over 5 years executing 5 key strategies. To accelerate time-to-market for new features at a reduced cost, Synoptek utilized a very similar iterative methodology and effectively supported the e-commerce client’s evolving platform over time.",
+            "ImplementedSolutions": {
+                "ECommercePlatformModernization": {
+                    "Rearchitecture": "Rearchitected existing environment and enable Azure analytics to give sellers better analytical insight into website performance",
+                    "FeatureUpdates": "Created/modernized/upgraded features related to the Buyer Portal, where consumers go to purchase goods"
+                },
+                "SellerSiteUpgradedAndModernization": {
+                    "Technology": "Upgraded Admin and Seller’s site to the latest .Net Core technologies, with enhanced features and a better User Interface",
+                    "Accessibility": "Enabled ADA/WCAG compliance to ensure the website can serve the entire community without limitation"
+                },
+                "MobileApplicationDevelopment": {
+                    "Platforms": "Created native mobile application for buyers, with features largely aligned to the Buyer site"
+                },
+                "ExistingAndOngoingSiteManagement": {
+                    "Support": "Provide 24x7x365 support for infrastructure and code that make up the suite of applications",
+                    "Enhancements": "Deliver continuous enhancements to stay relevant in a dynamic world",
+                    "Assessment": "Carry out system assessment and lifecycle management"
+                },
+                "AzureCloudInfrastructureManagement": {
+                    "RestructuredArchitecture": "Restructured reporting architecture to enable cloud-based access of database and reports",
+                    "Migration": "Migrated existing reporting database from on-prem SQL Server to the Azure cloud"
+                }
+            },
+            "BusinessBenefits": {
+                "RevenueGrowth": "The client is growing 40-50% per year",
+                "UserExperience": "Improved shopping experience for buyers and easier listing process for sellers",
+                "TechnologicalAdvancement": "Leveraging modern technologies for better performance and scalability"
+            }
+        },
+        "health_assistance_mobile_app": {
+            "AboutCustomer": "Develops innovative and effective solutions for delivering quality patient care outside of the traditional medical setting. Client has collaborated with major hospitals and is committed to patient care, research, teaching, and service to the community locally.",
+            "BusinessNeeds": "The client required a mobile app to be developed which integrates easily with various medical devices to capture patient vitals and updates on Validic, a healthcare platform for easy data access, as well as with the .NET middleware web application, custom developed to manage patients’ records and vitals data.",
+            "SolutionAndApproach": "Synoptek developed a health assistance mobile app that helps users to manage their patients’ vitals by connecting with various devices to measure glucose level, blood pressure, weight, and other activities.",
+            "KeyFeatures": {
+                "DataIntegration": "Fetches vitals from medical devices and syncs the data onto Validic portal and middleware application",
+                "IoTIntegration": "Captures patients’ vitals using medical devices through the app and syncs with Validic platform and middleware application",
+                "SupportedAppsAndDevices": "Supports various marketplace apps and devices for data collection",
+                "PlatformCompatibility": "Available on both App Store and Google Play for Android and iOS platforms"
+            },
+            "BusinessResults": {
+                "RevolutionInHealthcare": "Proactive monitoring and accurate diagnosis leading to saving lives",
+                "EnhancedUserExperience": "Easily manage patients’ vitals and share data with doctors",
+                "IoTAdvantages": "Accurate data capture and prevention of data loss"
+            }
+        },
+        "field_sales_mobile_app": {
+            "AboutCustomer": "A global leader in the industrial bulk packaging industry.",
+            "BusinessNeed": "The client required a sales app that access ERP sales modules features on their phones/tablets with the objective to increase the operational efficiency of the sales force.",
+            "SolutionAndApproach": "Synoptek developed an easy to use mobile app for sales executives with the objective to increase their operational efficiency in the field by accessing the sales module features of the Dynamics AX ERP system. It also includes global rollout for North America and Europe regions.",
+            "KeyFunctionalities": {
+                "Dashboard": "Visualizes data from ERP such as Top Sales orders, Leads by Source, Top Opportunities, Top Customers, etc.",
+                "ContactManagement": "Edit contact details, create activity, lead, opportunity, sales quotation, and sales order for a particular contact",
+                "MediaCapture": "Capture and synchronize media with SharePoint document management",
+                "OfflineSync": "Offline first mechanism for offline and online sync",
+                "MultiLingualSupport": "Support for multiple languages"
+            },
+            "BusinessResults": {
+                "FasterAccessToData": "Access to critical data improved",
+                "EfficiencyImprovement": "Operational efficiency of sales force increased",
+                "StreamlinedSalesProcess": "Sales process streamlined",
+                "ImprovedComplaintsProcess": "Efficient complaints/issues process addressed immediately"
+            }
+        },
+        "transport_management_system": {
+            "AboutCustomer": "Provides logistics solutions to freight forwarders and customers in a variety of industries across the United States",
+            "BusinessNeed": "The client required a centralized system that can improve automation, speed up integrations, broaden visibility and strengthen their competitive edge.",
+            "SolutionAndApproach": "Based on our study of the existing business process of the client, we conceptualized and developed a web-based Transport Management System (TMS) combining all their operations in one system.",
+            "ImplementedSolutions": {
+                "TMSFeatures": {
+                    "ShipmentManagement": "Includes shipment management, customer management, carrier and capacity management, freight tracking, and accounting",
+                    "AdvancedFeatures": "Live online shipment tracking, automatic proof of delivery reporting, automatic detention alerts, third party carrier tracking, route evaluation and geofencing, GPS package and asset tracking, customer shipment activity reports, and delivery performance reports"
+                },
+                "EnterpriseApplications": {
+                    "LearningManagementSystem": "Comprehensive Learning management system",
+                    "ContentDeliveryPortal": "Research and Blog content delivery portal",
+                    "WebsiteCMS": "CMS based website",
+                    "SalesforceIntegration": "Salesforce integration for Subscription management and customer on-boarding"
+                }
+            },
+            "BusinessResults": {
+                "CentralizedSystem": "Automation and streamlining of operations with a centralized system",
+                "ImprovedTracking": "Easy tracking of freight with real-time data",
+                "EnhancedReporting": "BI dashboards providing real-time data for better decision-making"
+            }
+        },
+        "marketing_planning_and_performance_measurement_saaS_product": {
+            "AboutCustomer": "A leading marketing technology firm specialized in marketing performance management. They help B2B marketing leaders measure, predict, and improve the impact of marketing.",
+            "BusinessNeed": "The client wanted to develop a product that serves as a single source for marketing planning, team collaboration and performance measurement.",
+            "SolutionAndApproach": "A SaaS based solution provides an agile, collaborative planning environment, see all marketing activities, and expected results so you can plan against corporate goals and budgets with confidence.",
+            "KeyFeatures": {
+                "DemandModelling": "Demand modelling",
+                "CentralizedCalendaring": "Centralized calendaring",
+                "BudgetingOptimization": "Advanced budgeting",
+                "MarketingMixOptimization": "Marketing mix optimization",
+                "DynamicReporting": "Dynamic reporting"
+            },
+            "BusinessResults": {
+                "RevenueIncrease": "Increase in revenue with real-time analytics",
+                "EfficiencyImprovement": "Increase in efficiency of marketing teams by 30%",
+                "ForecastAccuracy": "40% increase in accuracy of forecast for revenue/conversions by CMOs"
+            }
+        },
+        "research_and_advisory_firm_engagement": {
+            "AboutCustomer": "A research and advisory firm in sales, marketing, and product development areas, having several members including large, mid-size, and SME customers.",
+            "BusinessNeed": "The research and advisory firm was looking for Multi-skilled Technology partner with Global presence to develop new web applications along with maintenance and enhancement of home-grown applications.",
+            "SolutionAndApproach": "To meet the client’s requirement, Synoptek began the engagement by understanding existing pain points, carefully evaluating its data storage and analysis processes, and then assessing the challenges.",
+            "ImplementedSolutions": {
+                "BenchmarkingAnalysisPlatform": {
+                    "DataWarehouse": "Built a data warehouse to streamline data storage",
+                    "CommandCenterPlatform": "Developed 'Command Center' platform for dynamic analysis and insights"
+                },
+                "EnterpriseApplications": {
+                    "LearningManagementSystem": "Comprehensive Learning management system",
+                    "ContentDeliveryPortal": "Research and Blog content delivery portal",
+                    "WebsiteCMS": "CMS based website",
+                    "SalesforceIntegration": "Salesforce integration for Subscription management and customer on-boarding"
+                }
+            },
+            "BusinessResults": {
+                "DataStreamlining": "Streamlined the in-flow of data from multiple clients and channels",
+                "ImprovedAnalysis": "Accelerated the time taken to complete the benchmarking analysis process",
+                "GlobalAccessibility": "Provided access to its members/subscribers across the globe",
+                "EnhancedReporting": "Enabled all members/subscribers to leverage multiple visualization options"
+            }
+        },
+        "claims_filing_and_processing_application": {
+            "AboutCustomer": "The client is a large non-profit organization which brings about substantial and sustainable change in the lives of many needy people across the globe by delivering measurable long-term solutions to complex issues.",
+            "BusinessNeed": "The application streamlines the intake, processing, and paying out of emergency relief funds from client’s COVID-19 Pandemic Relief Fund.",
+            "SolutionAndApproach": "Below mentioned support services are provided to manage and enhance the application further.",
+            "SupportServices": {
+                "UIRedesign": "Complete re-design and overhaul of the UI",
+                "FeatureDevelopment": "Developing various new enhanced features",
+                "PerformanceOptimization": "Large scale improvisation to optimize the overall site performance",
+                "IssueResolution": "Fixing issues throughout the application"
+            },
+            "BusinessResults": {
+                "ClaimProcessing": "Faster claim processing for beneficiaries",
+                "Expansion": "Replication of the application to other chapters across North America"
+            }
+        }
+    },
+
+    "Microsoft Azure": {
+        "AboutCustomer": "A national engineering company in oil and gas wanted to transform their business to support their reduced market demand.",
+        "BusinessNeed": "The client was looking for a partner that could improve their overall application reliability, operational efficiencies, and cost savings. Working with Synoptek, the company replaced their current MSP, rationalized existing applications, and reduced overall IT spend.",
+        "SolutionAndApproach": "Conducted a Cloud Readiness Assessment to determine which workloads would be ideal candidates to run in the public cloud. Delivered Cloud Value Case / TCO to compare hosting options (Colocations, Azure, AWS, Synoptek Private Cloud). Performed App Rationalization to start consolidation redundant applications. Migrated over 130+ virtual machines to Azure. Consolidated multiple data center facilities down to one colocation and Azure. Reduced overall monthly hosting spend by $41K the first year. Reduced overall monthly hosting spend by $70K+ after the second year.",
+        "Benefits": {
+            "CostSavings": "Reduced overall monthly facilities, hardware, software, and support costs",
+            "OperationalImprovements": "Improved overall business continuity, security, and flexibility",
+            "ResourceFlexibility": "Pay for on-demand resources"
+        }
+    },
+    
+    "Workforce Productivity": {
+        "AboutCustomer": "The client specializes in cash management, entrance control, and safe storage products for retail, airports, mass transit, public and commercial buildings, and industrial and high-risk sites.",
+        "BusinessNeed": "The security products company used PowerApps to empower employees with a streamlined mechanism of creating apps and integrating them with every day business tools. Unfortunately, the PowerApps implementation was not done properly; the earlier vendor did not use any specific development guidelines to implement PowerApps. The entire solution was directly created on the production environment, which resulted in several UI/UX challenges.",
+        "Challenges": [
+            "Discount approval process",
+            "Traversing from one screen to another",
+            "Email notifications",
+            "Loader",
+            "Print functionality",
+            "Attachments",
+            "Document storage",
+            "Configuration",
+            "Locker screen",
+            "Expenses",
+            "Performance",
+            "Development environment",
+            "Testing"
+        ],
+        "SolutionAndApproach": {
+            "NFAProcess": {
+                "Redesign": "Redesigned the NFA entry form to improve user-friendliness",
+                "PrintFunctionality": "Implemented print functionality, allowing users to print/download NFA details directly from PowerApps",
+                "ApprovalProcess": "Enhanced NFA approval process to cover all scenarios of the approval process defined by the business process",
+                "EmailImprovement": "Improved email format to improve user experience and achieved end-to-end email notification to approvers and requestor",
+                "CopyFunctionality": "Implemented NFA copy functionality which creates a new copy of the centralized NFA",
+                "Loader": "Implemented loader in required PowerApps screen"
+            },
+            "EVOFProcess": {
+                "Redesign": "Redesigned EVOF entry form to improve user-friendliness",
+                "PrintFunctionality": "Implemented print functionality, allowing users to print/download EVOF details directly from PowerApps",
+                "Loader": "Implemented loader in required PowerApps screen",
+                "FileUpload": "Implemented file upload functionality and user-friendly UI to upload EVOF documents",
+                "Locker": "Implemented locker and customization for EVOF line items",
+                "SplitLines": "Implemented split lines functionality for customized items",
+                "PreviewScreen": "Implemented preview screen before submitting the EVOF"
+            },
+            "TravelRequest": {
+                "Redesign": "Enabled single screen for creating a travel request instead of two different screens",
+                "EmailImprovement": "Updated email format for better user experience",
+                "Enhancements": "Enhanced hotel expense and transport expense screens",
+                "Loader": "Implemented loader in required screens"
+            },
+            "OtherExpenses": {
+                "Redesign": "Enables single screen for creating other request instead of two different screens",
+                "EmailImprovement": "Updated email format for better user experience",
+                "Enhancements": "Implemented a functionality to highlight Policy-AV entries",
+                "Loader": "Implemented loader in required screens",
+                "PrintFormat": "Enhanced print format"
+            },
+            "Dashboard": {
+                "Implementation": "Implemented dashboard button visibility control based on user login",
+                "Redesign": "Redesigned NFA and EVOF approval view screen",
+                "SearchFunctionality": "Created view item screen to search item by code or name and display resulted item details like unit price and cost",
+                "ViewAllNFAScreens": "Created view all NFA screens for approver to quickly search NFA and view its details"
+            },
+            "IntegrationWithAX2009": {
+                "EVOFIntegration": "Created EVOF integration with AX 2009 to generate Sales order in AX 2009 using EVOF",
+                "SyncMechanism": "Implemented syncing mechanism for updating Sales Order from AX to PowerApps SQL database"
+            },
+            "AzureDevOps": {
+                "Environments": "Created different environments for development, stage, and production",
+                "ALMImplementation": "Implemented Application Lifecycle Management to import and export PowerApps from development environment to stage environment and stage environment to production environment"
+            }
+        },
+        "BusinessResults": {
+            "StrengthenedDevelopmentEnvironment": "Strengthen the development environment and enable easy and robust governance",
+            "ImprovedUserExperience": "Improve end-user experience by enhancing PowerApps features",
+            "SeamlessUsage": "Enable seamless concurrent usage – without witnessing a drop in functionality or performance",
+            "OvercameChallenges": [
+                "App loading and data storage issues",
+                "Discount approval process challenges",
+                "Enhanced process of Travel Requests and Other Expenses",
+                "Enhanced NFA discount approval process to cover all business steps",
+                "Enhanced EVOF creating process with line customizations",
+                "Enhanced PDF file and printing functionality",
+                "Enabled file uploading in single screen",
+                "Better UI/UX",
+                "Integration of AX 2009 with EVOF to generate Sales Order Synchronization with AX masters and PowerApps database"
+            ]
+        }
+    },
+
+    "Security": {
+        "MicrosoftCentricSMBClient": {
+            "BusinessProblem": "Client didn’t know how to embrace Security or where to start",
+            "Solution": {
+                "SecurityHealthCheck": "Conducted a Security Health Check (SHC) via interviews and reported key findings",
+                "PriorityIdentification": "SHC identified MFA to be a priority",
+                "Recommendation": "Recommended M365 over O365 for Conditional Access and Data Loss Protection"
+            },
+            "Outcome": "Client ended up recouping third party licensing costs"
+        },
+        "MicrosoftCentricLargeClient": {
+            "BusinessProblem": "Client was confident in their Security posture",
+            "Solution": {
+                "SecurityHealthCheck": "Conducted SHC",
+                "IdentificationOfExposures": "Uncovered and identified exposures in the Security area",
+                "Understanding": "Created more informed understanding of Security tools in M365",
+                "CostJustification": "Justified costs to CFO through third party offsets"
+            },
+            "Outcome": "Client became aware of new services with MS licensing"
+        }
+    },
+
+    "Marketing Media Company": {
+        "Client": "A marketing solution provider serving customers by providing insights to specific market segments and targeted platforms for engagement",
+        "Engagement": {
+            "Partner": "Synoptek",
+            "Role": "Preferred partner for data warehouse and Power BI integration"
+        },
+        "Solution": {
+            "Approach": "Utilized Azure tools and technologies for continuous synchronization between CRM entities and SQL database tables",
+            "Implementation": "Created Power BI dashboards and defined KPIs",
+            "Data Slicing": "Slice and aggregate data by client, product, product family, industry, lead source, CRM stage, and more"
+        },
+        "Results": {
+            "SalesTeamEfficiency": "25% increased efficiency in sales team performance and efforts",
+            "SalesRevenue": "Better sales and revenue",
+            "DataDrivenDecisions": "Key decisions made based on data-driven facts and supported by relevant information",
+            "DataAccessibility": "Users can easily access consolidated data from multiple sources using a single interface",
+            "SalesPerformanceTracking": "Easier tracking of sales performance by lead size, lead age, and uncovering emerging trends"
+        }
+    },
+    
+    "Window Manufacturer Sales Forecast": {
+        "Client": "A window company",
+        "BusinessNeed": "Streamline advertisement budget to optimize sales during off and peak seasons for better ROI",
+        "Solution": {
+            "SalesForecastingTool": "Built a sales forecasting tool to predict sales for 48 locations individually and combined",
+            "Data": "Utilized two years' worth of data to build the model for creating the sales forecasting model"
+        }
+    },
+    "Industrial Motor Manufacturer Predictive Maintenance": {
+        "Client": "A client in the industrial motor manufacturing sector",
+        "BusinessNeed": "Predict abrupt events like motor failure or early maintenance using collected sensor data",
+        "Solution": {
+            "DataAnalysis": "Analyzed sensor data and past performance of similar motors",
+            "PredictiveAnalytics": "Applied advanced analytics to predict motor failure",
+            "Alarms": "Configured alarms for temperature and acceleration thresholds",
+            "FutureDevelopment": "Working on building in-house capabilities to capture more data from machines",
+            "Dashboard": "Built a dashboard to support predictive maintenance"
+        }
+    },
+
+    "Logistics Carrier Organization": {
+        "Client": "A logistics carrier organization",
+        "BusinessNeed": "Migrate from a SaaS based operational system to a custom application managing day-to-day operations and activities, and implement a data warehouse and BI solution for reports and dashboards",
+        "Solution": {
+            "Migration": "Migrated from SaaS based operational system to a custom application",
+            "DataWarehouseAndBISolution": {
+                "Analysis": "Analyzed legacy and existing operational custom applications as data sources for dashboard requirements",
+                "EntityDefinitions": "Defined definitions of entities for data warehouse",
+                "ReportsAndKPIs": "Defined reports and KPIs along with calculations",
+                "DataWarehouseImplementation": "Implemented a data warehouse solution with periodic staging of raw data from multiple sources",
+                "Dashboards": {
+                    "Sales": "Developed dashboards for sales",
+                    "Carriers": "Developed dashboards for carriers",
+                    "Executives": "Developed dashboards for executive users",
+                    "Security": "Ensured security measures were implemented for dashboards"
+                }
+            }
+        }
+    },
+
+    "Recall": {
+        "BusinessNeed": "Design a streamlined and expanded online customer experience unified by single sign-on, encouraging self-service, and introducing cross-sell and upsell opportunities.",
+        "SolutionAndApproach": {
+            "ShiftInMindset": "Evolved from 'Product Delivery' to 'Customer Experience' mindset",
+            "TechnologyIntegration": "Integrated technology and UX design to solve customer pain points and uncover efficiencies and new business opportunities",
+            "KeyEfforts": [
+                "Single Sign-On implementation",
+                "Enhanced Search functionality",
+                "Dashboard Presentation improvement",
+                "Responsive Design implementation",
+                "Integration of key functions"
+            ]
+        },
+        "BusinessBenefits": "Unified customer experience, increased consumption of services, attention from Gartner, acquisition by major competitor"
+    },
+
+    "Shop Goodwill": {
+        "BusinessNeed": "Modernize legacy e-commerce site and enhance end-user experience for online marketplace",
+        "SolutionAndApproach": {
+            "Vision": "Curated a 5x5x5 vision focusing on revenue growth, customer-centric culture, digital transformation, leveraging technology advancements, and community engagement",
+            "Approach": "Engaged with the e-commerce team to analyze the marketplace, modernize existing platform, and ensure scalability and usability",
+            "KeyComponents": [
+                "E-commerce platform modernization",
+                "Seller site upgrade and modernization",
+                "Mobile application development",
+                "Ongoing site management",
+                "Azure Cloud Infrastructure Management"
+            ]
+        },
+        "BusinessBenefits": "Revenue growth, improved shopping experience, 40-50% annual growth, attraction of new buyers, introduction of mobile application"
+    },
+
+    "Fastmore": {
+        "BusinessNeed": "Develop a Transport Management System (TMS) to centralize operations, improve automation, broaden visibility, and strengthen competitive edge",
+        "SolutionAndApproach": {
+            "Development": "Conceptualized and developed a web-based TMS combining all operations into one system",
+            "Features": "Included shipment management, customer management, carrier management, freight tracking, and accounting",
+            "KeyTechnologyFeatures": [
+                "Live online shipment tracking",
+                "Automatic proof of delivery reporting",
+                "Automatic detention alerts",
+                "GPS package and asset tracking",
+                "Customer shipment activity reports"
+            ]
+        },
+        "BusinessBenefits": {
+            "OperationalImprovements": [
+                "45% workload reduction in transaction and invoice processing",
+                "50% improvement in tracking team productivity"
+            ],
+            "BusinessGrowth": [
+                "$60M in revenue with 20% average gross margin",
+                "100% business dependent on the product",
+                "Over 46,000 shipments processed, 21 million distribution miles supported, 400+ customers serviced using over 5000 carriers"
+            ]
+        }
+    },
+    
+    "National Insurance Company": {
+        "BusinessNeed": "Update corporate website with a modern UI, develop an agent portal, and streamline workflow, opportunity, and quote tracking/underwriting status",
+        "SolutionAndApproach": {
+            "Redesign": "Redesigned and branded custom corporate website",
+            "Automation": "Created custom automation to reduce manual processes",
+            "Modernization": "Upgraded and modernized tech stack to Azure and .Net",
+            "AgentPortal": "Built agent portal for pricing multiple carriers",
+            "Integration": "Integrated website with CRM",
+            "ContinuedSupport": "Continued to support, enhance, and add features over the last decade"
+        },
+        "Benefits": {
+            "IncreasedProductivity": "Added new features and saved 67% in labor costs"
+        }
+    },
+    "Real Estate Transaction Company": {
+        "BusinessNeed": "Automate transaction coordination, reduce cost & time, increase resource productivity, and increase transactions per month",
+        "SolutionAndApproach": {
+            "Platform": "Comprehensive self-service platform for business process automation",
+            "Features": [
+                "Property listing & offer creation",
+                "Online document verification",
+                "Automated workflow",
+                "Help desk support"
+            ]
+        },
+        "Benefits": {
+            "Efficiency": "Reduced transaction processing time from 10 hours to 20 minutes",
+            "Productivity": "Tremendous improvement in client productivity & efficiency, resulting in higher revenue",
+            "Accuracy": "Increased accuracy and compliance adherence with minimal manual effort"
+        }
+    },
+    "Patientcare Solutions Provider": {
+        "BusinessNeed": "Develop a health assistance mobile app with OCR capabilities to manage patient vitals and updates",
+        "SolutionAndApproach": {
+            "MobileApp": "Developed a health assistance mobile app",
+            "Integration": "Integrated with various medical devices and Validic platform",
+            "Features": [
+                "IoT-enabled vitals capture",
+                "Native Android and iOS programming",
+                "Offline and online data sync",
+                "Monthly reports generation"
+            ]
+        },
+        "BusinessResults": {
+            "Revolution": "Revolutionized healthcare with proactive monitoring and timely diagnosis",
+            "Efficiency": "Increased efficiency in managing patient data and sync",
+            "Growth": "Facilitated growth in users and revenue"
+        }
+    },
+    "Marketing Technology Firm": {
+        "BusinessNeed": "Develop a SaaS product for marketing planning, team collaboration, and performance measurement",
+        "SolutionAndApproach": {
+            "SaaSProduct": "Developed a SaaS-based marketing planning and performance measurement platform",
+            "Features": [
+                "Agile, collaborative planning environment",
+                "Real-time dashboards",
+                "Marketing mix optimization",
+                "Dynamic reporting"
+            ]
+        },
+        "BusinessResults": {
+            "RevenueIncrease": "Increased revenue with real-time analytics",
+            "Efficiency": "Improved decision making and marketing team efficiency",
+            "Recognition": "Selected as Cool Vendor in marketing technology space by Gartner"
+        }
+    },
+    "Research and Advisory Firm": {
+        "BusinessNeed": "Develop web applications, maintenance, and enhancement services",
+        "SolutionAndApproach": {
+            "Engagement": "Multi-year development and maintenance engagement",
+            "Applications": [
+                "Learning management system",
+                "Research and Blog content portal",
+                "CMS based website",
+                "Salesforce integration"
+            ]
+        },
+        "BusinessResults": {
+            "Streamline": "Streamlined data management and benchmarking analysis",
+            "Accelerate": "Accelerated benchmarking analysis process",
+            "Access": "Provided access to reports and insights across geographies"
+        }
+    },
+    "Non-Profit Organization": {
+        "BusinessNeed": "Implement integrated application modernization and business intelligence solution",
+        "SolutionAndApproach": {
+            "Modernization": "Implemented data warehouse and BI solution",
+            "Technologies": [
+                "Azure cloud services",
+                "Power BI"
+            ]
+        },
+        "Benefits": {
+            "Efficiency": "Reduced data preparation time and improved performance",
+            "CostSaving": "Saved $150/month in cloud costs"
+        }
+    },
+    "National Engineering Company": {
+        "BusinessNeed": "Improve application reliability, operational efficiencies, and cost savings",
+        "SolutionAndApproach": {
+            "CloudMigration": "Migrated over 130+ virtual machines to Azure",
+            "AppRationalization": "Consolidated multiple data center facilities",
+            "CostReduction": "Reduced overall monthly hosting spend by $41K the first year and $70K+ the second year"
+        },
+        "Benefits": {
+            "CostSaving": "Reduced overall monthly facilities, hardware, software, and support costs",
+            "Improvement": "Improved business continuity, security, and flexibility"
+        }
+    },
+
+    "Toy Retailer": {
+        "BusinessNeed": "Develop an e-commerce store integrated with Microsoft Dynamics AX system and a customized web portal",
+        "SolutionAndApproach": {
+            "ECommerceStore": "Developed a Magento-based B2C e-commerce store",
+            "Integration": [
+                "Integrated with Dynamics AX system",
+                "Developed a responsive web portal"
+            ],
+            "Highlights": {
+                "UserExperience": "Custom theme development and SVG support",
+                "Features": [
+                    "Gift finder",
+                    "Delivery method",
+                    "Multi-language support"
+                ]
+            }
+        },
+        "BusinessResults": {
+            "ImprovedExperience": "Enhanced shopping experience across all devices",
+            "Popularity": "Contributed majorly to brand popularity",
+            "MultiChannelGrowth": "Paving the way for multi-channel growth"
+        }
+    },
+
+    "Sporting Goods Retailer": {
+        "BusinessNeed": "Develop, enhance, and monitor e-commerce websites for improved performance and operations",
+        "SolutionAndApproach": {
+            "Services": "Application management services for e-commerce websites",
+            "Enhancement": "Enhanced and modernized multiple e-commerce websites",
+            "Communication": "Established multi-level communication for faster turnaround"
+        },
+        "BusinessResults": {
+            "CostReduction": "Low cost maintenance",
+            "Optimization": "Performance optimization",
+            "Support": "Advanced Magento support and maintenance"
+        }
+    },
+    "Modular Kitchen Manufacturer and Retailer": {
+        "BusinessNeed": "Integrate e-commerce websites with ERP and storefront portal",
+        "SolutionAndApproach": {
+            "Integration": "Integrated e-commerce websites with Dynamics 365 ERP and storefront portal",
+            "Features": [
+                "E-commerce for customers",
+                "Storefront portal for staff",
+                "ERP for order fulfillment and finance"
+            ]
+        },
+        "BusinessResults": {
+            "Integration": "Fully integrated solution",
+            "Performance": "Better overall performance",
+            "UserExperience": "Modern design and user experience"
+        }
+    },
+    "Beauty Services and Products Provider": {
+        "BusinessNeed": "Implement e-commerce platform and develop a skin care product recommendation engine",
+        "SolutionAndApproach": {
+            "ECommerce": "Implemented Magento e-commerce platform",
+            "RecommendationEngine": "Developed a Java/Oracle-based recommendation engine",
+            "Features": [
+                "Skincare questionnaire for customers",
+                "Custom logic for product recommendations"
+            ]
+        }
+    },
+
+    "Digital Media Company": {
+        "BusinessNeed": "Develop e-commerce platform and offer digital content to customers",
+        "SolutionAndApproach": {
+            "ECommercePlatform": "Developed e-commerce store using Magento Enterprise edition",
+            "Integration": "Integrated with WordPress site and PayPal",
+            "Features": [
+                "User-friendly interface design",
+                "Online inventory updates",
+                "Online credit card payment gateway"
+            ]
+        },
+        "BusinessBenefits": {
+            "ImprovedUI": "Enhanced user interface",
+            "Security": "Well-implemented security patches",
+            "IncreasedTraffic": "Increase in the number of visitors"
+        }
+    },
+
+    "Consumer Media Company": {
+        "BusinessNeed": "Improve website navigation and performance",
+        "SolutionAndServices": {
+            "SupportAndMaintenance": [
+                "Proactive monitoring",
+                "Assurance of flawless Magento code structure",
+                "Performance optimization"
+            ],
+            "Communication": "Established multi-level communication for faster turnaround"
+        },
+        "BusinessResults": {
+            "PerformanceImprovement": "Identified and addressed performance problem areas",
+            "ObjectivesAchieved": [
+                "Desired traffic",
+                "Branding",
+                "Cost savings",
+                "Better customer service",
+                "Online marketing objectives"
+            ]
+        }
+    },
+    "Luxury Retailer": {
+        "BusinessNeed": "Build a strong retail presence online and integrate with Dynamics AX ERP",
+        "SolutionAndApproach": {
+            "IntegrationPlatform": "Synced various data components between Magento-based e-commerce sites and Dynamics AX ERP",
+            "Components": [
+                "Products",
+                "Categories/Attributes/Variants",
+                "Sales Order",
+                "Order Fulfillment updates",
+                "Inventory",
+                "Pricing",
+                "Promotions"
+            ]
+        },
+        "BusinessResults": {
+            "OperationalControl": "Better operational control",
+            "CustomerExperience": "Positive tick in customer experience",
+            "CostReduction": "Reducing costs",
+            "ErrorFreeExperience": "Error-free experience"
+        }
+    },
+    "Global Industrial Packaging Leader": {
+        "BusinessNeed": "Develop a field sales mobile app for accessing ERP sales modules",
+        "SolutionAndApproach": {
+            "MobileApp": "Developed an easy-to-use mobile app for sales executives",
+            "Features": [
+                "Dashboard visualization",
+                "Editing contact details",
+                "Activity and order management",
+                "Media capture and synchronization"
+            ]
+        },
+        "BusinessResults": {
+            "FasterAccess": "Faster access to critical data",
+            "Efficiency": "Increased operational efficiency of sales force",
+            "StreamlinedProcess": "Streamlined sales process",
+            "EfficientComplaints": "Efficient complaints/issues process"
+        }
+    },
+    "Global Air Conditioning Manufacturer": {
+        "BusinessNeed": "Develop a mobile app for remote control of ACs and a web application for administration",
+        "SolutionAndApproach": {
+            "MobileApp": "Developed a remote control mobile app for both Android and iOS devices",
+            "WebApplication": "Developed a web application for central administration hosted on Azure Cloud"
+        },
+        "BusinessResults": {
+            "RemoteControl": "Operating ACs remotely from anywhere",
+            "Reminders": "Regular reminders for filter cleaning, service, and maintenance",
+            "Monitoring": "User can keep an eye on AC operation"
+        }
+    },
+
+    "SaaS Product Marketing": {
+        "customer": "Leading marketing technology firm specialized in marketing performance management",
+        "business_need": "Develop a product for marketing planning, team collaboration, and performance measurement",
+        "solution": {
+        "saas_solution": true,
+        "key_features": [
+            "Agile, collaborative planning environment",
+            "Real-time dashboards for tracking high-value metrics",
+            "Centralized calendaring",
+            "Advanced budgeting",
+            "Marketing mix optimization",
+            "Dynamic reporting"
+        ],
+        "clients": ["Shell", "Thomson Reuters", "Zebra", "Mongo DB"]
+        },
+        "business_results": {
+        "increase_in_revenue": "Real-time analytics",
+        "bridging_gap": "Between marketing automation and CRM tools",
+        "enterprise_platform": "For planning and budgeting",
+        "efficient_decision_making": "Optimize efforts and effectiveness",
+        "efficiency_increase": "30% increase in marketing teams' efficiency",
+        "accuracy_improvement": "40% increase in forecast accuracy for revenue/conversions",
+        "recognition": "Selected as Cool Vendor in marketing technology space for 2015 by Gartner"
+        }
+    },
+
+    "research_advisory_firm": {
+        "customer": "A research and advisory firm in sales, marketing, and product development areas",
+        "business_need": "Develop new web applications along with maintenance and enhancement of home-grown applications",
+        "solution_and_approach": {
+        "pain_points": "Understand existing pain points, evaluate data storage and analysis processes, assess challenges",
+        "saas_application": "SaaS application for automated benchmarking analysis",
+        "platform_components": [
+            "Data warehouse",
+            "Command Center for dynamic analysis and insights",
+            "Enterprise applications: Learning management, Research and Blog content delivery portal, CMS based website, Salesforce integration"
+        ]
+        },
+        "business_results": {
+        "streamline_data_flow": "Centralized data for benchmarking analysis",
+        "resource_allocation_optimization": "Identify opportunities for better allocation of budgets and resources",
+        "accelerated_analysis": "Accelerate benchmarking analysis process",
+        "global_access": "Provide access to reports globally",
+        "visualization_options": "Leverage multiple visualization options for reports and dashboards"
+        }
+    },
+
+    "Transport Management System ": {
+        "customer": "Provides logistics solutions to freight forwarders and customers in the United States",
+        "business_need": "Centralized system to improve automation, speed up integrations, broaden visibility, and strengthen competitive edge",
+        "solution_and_approach": {
+        "solution": "Web-based Transport Management System (TMS)",
+        "features": [
+            "Shipment management",
+            "Customer management",
+            "Carrier and capacity management",
+            "Freight tracking",
+            "Accounting"
+        ]
+        },
+        "business_results": {
+        "integrated_system": "12 different third-party systems integrated",
+        "stress_reduction": "Elimination of unnecessary stress and time during booking process",
+        "enhanced_tracking": "Easy tracking of freight and alerts for transit exceptions",
+        "real_time_data": "BI dashboards for real-time operational data"
+        }
+    },
+
+    "Entertainment Company": {
+        "customer": "The Walt Disney Company, a global media and entertainment company",
+        "business_need": "Execute critical business transformation projects in response to technological revolution in the theatrical industry",
+        "solutions_and_approach": {
+        "implemented_systems": [
+            "Global Product Development System",
+            "Content Management System",
+            "Global Release Planning System"
+        ],
+        "project_execution": "Managed overall implementation including design, development, testing, and deployment",
+        "systems_integration": "Consolidated functionality across 27 regional and departmental systems, integrated with over 6 operational systems"
+        },
+        "business_results": {
+        "ongoing_support": "Continued partnership for ongoing support and upgrade",
+        "business_transformation": "Successfully delivered critical business transformation projects",
+        "strategic_roadmap": "Assisted in building a strategic roadmap for sustained success"
+        }
+    },
+
+    "Legacy App Modernization": {
+        "customer": "A premier general industrial contractor",
+        "business_need": "Migrate legacy application to Azure, re-architect to leverage microservice architecture, and modernize multiple web applications",
+        "solution_and_approach": {
+        "modernization": "Re-architected legacy MS Excel and MS Access code to .Net Core and Angular",
+        "infrastructure_migration": "Migration from on-premise to Azure using PaaS services",
+        "application_enhancement": "Improved UI, application resiliency, agility, and automation"
+        },
+        "business_results": {
+        "enhanced_access": "Web-based applications accessible from multiple locations and devices",
+        "resiliency_and_automation": "Improved application resiliency and automation",
+        "cost_optimization": "Optimized infrastructure costs"
+        }
+    },
+
+    "Non-Profit CRM Integration": {
+        "customer": "A dedicated childhood cancer research charity",
+        "business_need": "Integrate Classy CRM and Salesforce, rebuild website theme for performance improvement",
+        "solution_and_approach": {
+        "integration": "Implemented integration between Classy CRM and Salesforce",
+        "website_rebuild": "Rebuilt website theme for performance enhancement"
+        },
+        "key_highlights": [
+        "Website management and migration to Synoptek hosting environment",
+        "Increased website performance, stability, and reliability"
+        ]
+    },
+
+    "Healthcare BI Solution": {
+        "customer": "A non-profit healthcare organization",
+        "business_need": "Implement integrated business intelligence solution for effective data analysis and decision-making",
+        "solution_and_approach": {
+        "bi_solution": "Data warehouse implementation using Azure PaaS, Power BI reports and dashboards",
+        "data_governance": "Implemented data governance program including master data management, data lifecycle, and data quality"
+        },
+        "business_results": {
+        "revenue_lift": "$2.5M revenue lift through better insights and performance",
+        "value_drivers": "BI solution as a key driver in achieving higher revenue levels",
+        "analytics_and_reports": "Provided range of data analytics and reports for operational data analysis"
+        }
+    },
+
+    "Claims Processing App": {
+        "customer": "A large non-profit organization providing emergency relief funds",
+        "business_need": "Streamline claims processing for emergency relief funds",
+        "solution_and_approach": {
+        "ui_redesign": "Complete redesign and overhaul of UI",
+        "feature_development": "Development of various new enhanced features",
+        "performance_optimization": "Large-scale performance optimization"
+        },
+        "business_results": {
+        "faster_processing": "Faster claim processing for beneficiaries",
+        "replication_success": "Success in replicating application for other chapters across North America"
+        }
+    },
+
+    "E-commerce Strategy": {
+        "customer": "Ace Hardware, a global home improvement and hardware retailer",
+        "business_need": "Develop an e-commerce strategy and platform to complement in-store service and grow business",
+        "solutions_and_approach": {
+        "strategy_implementation": "Implemented e-commerce strategy to build online platform",
+        "platform_components": [
+            "Robust e-commerce platform",
+            "Integrated order-fulfillment and inventory management solution",
+            "Sophisticated marketing tracking and effectiveness measurement"
+        ]
+        },
+        "business_results": {
+        "rapid_growth": "Rapid growth of online platform, acquisition by Amazon",
+        "goodwill_learnings": "Learnings on governance and stakeholder management shared for goodwill"
+        }
+    },
+    
+    "Program Management": {
+        "customer": "Oakley, a sports and lifestyle brand",
+        "business_need": "Provide senior Program Management for critical projects including e-commerce transformation",
+        "solutions_and_approach": {
+        "projects_managed": [
+            "$10+ million eCommerce transformation program",
+            "Online planning system implementation"
+        ]
+        },
+        "business_results": {
+        "on_time_completion": "Multiple projects completed on-time and under budget",
+        "alignment_with_business_needs": "Execution aligned with revenue growth targets and stakeholder needs"
+        }
+    }
+
 }

@@ -9,6 +9,9 @@ def prompts_():
         - Page Numbers: Assign logical starting page numbers to each section and subsection.
         - Formatting: Use clear formatting. Main sections should be bolded, and subsections indented.
         - Additional Elements: Include elements like Appendices, Glossary, and References, indicating their locations.
+        Check and don't add any AI created message at start and end of response.
+        Check and don't add any greeting statements or content at the start of response.
+        Check and don't add any concluding statements or content at the end of response.
         ---
         Here is the example of provided text:\n{list_of_sections}
         """,
@@ -21,6 +24,9 @@ def prompts_():
         - Unique value proposition offered by Synoptek.
         - Projection of costs, incentives, and financial benefits.
         - Summary of ongoing support and resources.
+        Check and don't add any AI created message at start and end of response.
+        Check and don't add any greeting statements or content at the start of response.
+        Check and don't add any concluding statements or content at the end of response.
         ---
         Here is the example of extracted text:\n{extracted_text}
         """,
@@ -34,6 +40,9 @@ def prompts_():
         - Specific services and solutions offered.
         - Future collaboration opportunities.
         - Closing remarks.
+        Check and don't add any AI created message at start and end of response.
+        Check and don't add any greeting statements or content at the start of response.
+        Check and don't add any concluding statements or content at the end of response.
         ---
         Here is the example of extracted text:\n{extracted_text}
         """,
@@ -42,7 +51,9 @@ def prompts_():
         Develop a technical background from provided text. Ensure a detailed presentation.
         This section should include a brief description of the client company and what they do. 
         The project background should include information about the reasoning why you want to implement this specific project in the specific manner.
-        Don't add any AT created message at start and end of response.
+        Check and don't add any AI created message at start and end of response.
+        Check and don't add any greeting statements or content at the start of response.
+        Check and don't add any concluding statements or content at the end of response.
         ---
         Here is the example of extracted text:\n{extracted_text}
         """,
@@ -55,7 +66,9 @@ def prompts_():
               Focus on non-technical business objectives.
         - Innovative program features.
         - Capabilities for future-proofing by Synoptek.
-        Don't add any AT created message at start and end of response.
+        Check and don't add any AI created message at start and end of response.
+        Check and don't add any greeting statements or content at the start of response.
+        Check and don't add any concluding statements or content at the end of response.
         ---
         Here is the example of extracted text:\n{extracted_text}
         """,
@@ -70,7 +83,9 @@ def prompts_():
         - Client-specific and common challenges.
         - Strategic partnership goals focusing on client benefits.
         - Critical success factors for global team effectiveness.
-        Don't add any AT created message at start and end of response.
+        Check and don't add any AI created message at start and end of response.
+        Check and don't add any greeting statements or content at the start of response.
+        Check and don't add any concluding statements or content at the end of response.
         ---
         Here is the example of extracted text:\n{extracted_text}
         """,
@@ -82,8 +97,9 @@ def prompts_():
         - High level features of the solution and how it will be carried out.
         - List the business processes, departments, applications, and data sources that are in scope for this project.
         - Do not add a very detailed explanation about the requirement but at the same time, write understandable and concise requirement statements specific to the client's unique situation.
-
-        Don't add any AT created message at start and end of response.
+        Check and don't add any AI created message at start and end of response.
+        Check and don't add any greeting statements or content at the start of response.
+        Check and don't add any concluding statements or content at the end of response.
         ---
         Here is the example of extracted text:\n{extracted_text}
         """,
@@ -93,7 +109,9 @@ def prompts_():
         - Expected outputs.
         - Project milestones.
         - Required documentation and client-specific requirements.
-        Don't add any AT created message at start and end of response.
+        Check and don't add any AI created message at start and end of response.
+        Check and don't add any greeting statements or content at the start of response.
+        Check and don't add any concluding statements or content at the end of response.
         ---
         Here is the example of extracted text:\n{extracted_text}
         """,
@@ -103,7 +121,9 @@ def prompts_():
         - Envision: Planning and objectives.
         - Transform: Implementation processes.
         - Evolve: Continuous improvement.
-        Don't add any AT created message at start and end of response.
+        Check and don't add any AI created message at start and end of response.
+        Check and don't add any greeting statements or content at the start of response.
+        Check and don't add any concluding statements or content at the end of response.
         ---
         Here is the example of extracted text:\n{extracted_text}
         Here is additional information:\n{scope}
@@ -114,7 +134,9 @@ def prompts_():
         - Introduction to the transition.
         - Transition approach and methodologies.
         - Key transition activities and milestones.
-        Don't add any AT created message at start and end of response.
+        Check and don't add any AI created message at start and end of response.
+        Check and don't add any greeting statements or content at the start of response.
+        Check and don't add any concluding statements or content at the end of response.
         ---
         Here is the example of extracted text:\n{extracted_text}
         """,
@@ -123,7 +145,9 @@ def prompts_():
         Craft a technical timeline plan table:
         - Introduction to Timeline.
         - Detailed tabular Timeline.
-        Don't add any AT created message at start and end of response.
+        Check and don't add any AI created message at start and end of response.
+        Check and don't add any greeting statements or content at the start of response.
+        Check and don't add any concluding statements or content at the end of response.
         ---
         Here is the example of extracted text:\n{extracted_text}
         """

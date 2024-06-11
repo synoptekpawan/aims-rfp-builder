@@ -8,8 +8,34 @@ import re
 import json
 import time
 from langchain.chains import RetrievalQA
+
+def process_case_studies(case_studies):
+    try:
+        # response = {}
+        with open(r"./static_texts/case_studies.json", 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            result_string = ""
+            case_study_count = 1
+
+            for selected_case_study in case_studies:
+                if selected_case_study in data:
+                    result_string += f"\nCase Study {case_study_count}: {selected_case_study}\n"
+                    for key, value in data[selected_case_study].items():
+                        result_string += f"\n{key}\n{value[0] if isinstance(value, list) else value}\n"
+                    case_study_count += 1  # Increment the counter after processing a case study
+                else:
+                    result_string += f"\nSelected case study {selected_case_study} not found.\n"
+
+            # response['case studies'] = result_string
+        return result_string
+        
+        # return response
+    except Exception as e:
+        print(f"Error: {e}")
+        return {}
+
 # @st.cache_resource() #suppress_st_warning=True, allow_output_mutation=True
-def generate_response(vector_store, llm_qa, llm_resp, prompts, clientOrg):
+def generate_response(vector_store, llm_qa, llm_resp, prompts, clientOrg, case_studies):
 
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm_qa,
@@ -21,7 +47,7 @@ def generate_response(vector_store, llm_qa, llm_resp, prompts, clientOrg):
     koc = qa_chain({"query":"extract detailed key opportunities and challenges from the provided document. Skip Pricing Model & Case Studies related documents."})
     sow = qa_chain({"query":"extract detailed scope of work for all phases from the provided document. Skip Deliverables, Pricing Model & Case Studies related documents."})
     deliverables = qa_chain({"query":"extract detailed deliverables  for al phases from the provided document. Skip Scope of work, Pricing Model & Case Studies related documents."})
-    
+    domain = qa_chain({"query":"Extract industry domain with description from the provided document."})
     
     st.sidebar.write("**Time taken to retrieve relevant documents in mins**")
     st.sidebar.write(round((time.time() - start_time)/60, 2))
@@ -74,14 +100,15 @@ def generate_response(vector_store, llm_qa, llm_resp, prompts, clientOrg):
             response[section] = synoptek_talent_management_txt.read()
 
         elif section == 'CASE STUDIES':
-            # Open the JSON file
-            with open(r"./static_texts/case_studies.json") as f:
-                data = json.load(f)
-                result_string = ""
+            # # Open the JSON file
+            # with open(r"./static_texts/case_studies.json") as f:
+            #     data = json.load(f)
+            #     result_string = ""
 
-                for key, value in data["HealthCare"].items():
-                    result_string += f"\n{key}\n{value[0]}\n"
-            response[section] = result_string
+            #     for key, value in data["HealthCare"].items():
+            #         result_string += f"\n{key}\n{value[0]}\n"
+            # response[section] = result_string
+            response[section] = process_case_studies(case_studies)
 
         elif section == 'QUALITY SECURITY AND COMPLIANCE':
             quality_control_txt = open(r"./static_texts/quality_control.txt", "r", encoding="utf8")    
