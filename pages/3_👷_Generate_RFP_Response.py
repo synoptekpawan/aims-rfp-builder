@@ -111,6 +111,9 @@ if 'doc_generated' not in st.session_state:
 if 'bio' not in st.session_state:
     st.session_state['bio'] = None
 
+if 'case_studies' not in st.session_state:
+    st.session_state['case_studies'] = None
+
 logger.info("Initialized session state")
 
 ## -------------------------------------------------
@@ -409,7 +412,7 @@ with col2:
                 initial_sections = st.session_state['sections'][:]  # Make a copy of the original sections
                 # print(initial_sections)
                 section_df = pd.DataFrame({'Sections': initial_sections})
-                section_df['User Inputs'] = ""
+                section_df['User Inputs'] = None
                 # print(section_df)
                 edited_df = st.data_editor(data=section_df, 
                                                 num_rows="dynamic", use_container_width=True)
@@ -417,7 +420,7 @@ with col2:
                 # print("edited_df_list",edited_df_list)
 
                 edited_sections = [item['Sections'].strip() for item in edited_df_list if item['Sections'].strip()]
-                user_inputs = [item['User Inputs'].strip() for item in edited_df_list]
+                user_inputs = [item['User Inputs'].strip() if item['User Inputs'] is not None else item['User Inputs'] for item in edited_df_list]
 
                 section_dict = {section: input_ for section, input_ in zip(edited_sections, user_inputs)}
 
@@ -445,11 +448,22 @@ with col2:
                                         'ASSUMPTIONS AND CLIENT RESPONSIBILITIES']
                             
                             sections = st.multiselect(label = '## **What sections to be included?**',
-                                       options = ['SYNOPTEK OVERVIEW','SYNOPTEK\'s CULTURE AND APPROACH TO TALENT MANAGEMENT',
-                                        'CASE STUDIES','QUALITY SECURITY AND COMPLIANCE',
+                                       options = ['SYNOPTEK OVERVIEW','SYNOPTEK\'s CULTURE AND APPROACH TO TALENT MANAGEMENT', 'CASE STUDIES',
+                                        'QUALITY SECURITY AND COMPLIANCE',
                                         'ASSUMPTIONS AND CLIENT RESPONSIBILITIES'],
                                         default=default_synoptek_sections, 
                                         key='sections0')
+                            
+                            all_select = st.checkbox('Select All Case Studies', key='all_select')
+                            # case_studies = st.multiselect("## **Select case studies from here**",
+                            case_studies= ['Health Care', 'Finance', 'Business Application', 'Business Intelligence', 'Production Development', 'Microsoft Azure', 'Workforce Productivity', 'Security', 'Marketing Media Company', 'Window Manufacturer Sales Forecast', 'Industrial Motor Manufacturer Predictive Maintenance', 'Logistics Carrier Organization', 'Recall', 'Shop Goodwill', 'Fastmore', 'National Insurance Company', 'Real Estate Transaction Company', 'Patientcare Solutions Provider', 'Marketing Technology Firm', 'Research and Advisory Firm', 'Non-Profit Organization', 'National Engineering Company', 'Toy Retailer', 'Sporting Goods Retailer', 'Modular Kitchen Manufacturer and Retailer', 'Beauty Services and Products Provider', 'Digital Media Company', 'Consumer Media Company', 'Luxury Retailer', 'Global Industrial Packaging Leader', 'Global Air Conditioning Manufacturer', 'SaaS Product Marketing', 'Research Advisory Firm', 'Transport Management System', 'Entertainment Company', 'Legacy App Modernization', 'Non-Profit CRM Integration', 'Healthcare BI Solution', 'Claims Processing App', 'E-commerce Strategy', 'Program Management']#,key='caseStudies0')
+                            
+                            if all_select:
+                                cases = st.multiselect('## **What case studies to be included?**', case_studies, case_studies, key='caseStudies0')
+                            else:
+                                cases = st.multiselect('## **What case studies to be included?**', case_studies, key='caseStudies0')
+
+                            st.session_state['case_studies'] = cases
                             
                             synoptek_section_dict = {sec: "" for sec in sections}
                             section_dict.update(synoptek_section_dict)
@@ -476,10 +490,12 @@ with col2:
                 # st.write(st.session_state['prepared_prompts'])
                 
                 if st.session_state['prepared_prompts']:
+                    
                     generated_resp = generate_response(vector_store=st.session_state['vector_store'],
                                                         llm_qa=azure_qa, llm_resp=azure_resp,
                                                         prompts=prepared_prompts, 
-                                                        clientOrg=st.session_state['clientOrg'])
+                                                        clientOrg=st.session_state['clientOrg'],
+                                                        case_studies=st.session_state['case_studies'])
                     # st.write('\n\n'.join([key+'\n', values+'\n']) for key, values in generated_resp.items())
                     st.session_state['generated_resp'] = generated_resp
                     st.success("Generated response")
@@ -496,7 +512,36 @@ if st.session_state['generated_resp']:
         st.write(st.session_state['generated_resp'])
         ref_doc = r'./reference_docs/reference_doc_v1.docx'
 
-        save_dict_with_markdown_to_word(dictionary = st.session_state['generated_resp'], 
+        rfp_resp = st.session_state['generated_resp']
+        print("rfp_resp",type(rfp_resp))
+        print("rfp_resp_values",type(rfp_resp.values()))
+
+        cleaned_rfp_resp = {key:re.sub(r'\[doc \d\.\d-\d\]', '', str(values)) for key, values in rfp_resp.items()}
+
+        cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?Conclusion,\s', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+
+        cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?Conclusion\b.*(?:\n.*)*', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+
+        cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?conclusion,\s', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+
+        cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?conclusion\b.*(?:\n.*)*', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+
+        cleaned_rfp_resp = {key:re.sub(r'^Conclusion\b.*(?:\n.*)*', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+
+        # ---
+        cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?Summary,\s', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+
+        cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?Summary\b.*(?:\n.*)*', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+
+        cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?summary,\s', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+
+        cleaned_rfp_resp = {key:re.sub(r'\b(In\s)?summary\b.*(?:\n.*)*', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+
+        cleaned_rfp_resp = {key:re.sub(r'^Summary\b.*(?:\n.*)*', '', str(values)) for key, values in cleaned_rfp_resp.items()}
+
+        # cleaned_text = re.sub(r'\[doc \d\.\d-\d\]', '', template['result'].lower())
+
+        save_dict_with_markdown_to_word(dictionary = cleaned_rfp_resp, 
                                         file_path = r'./output_files/'+st.session_state['clientOrg']+'.docx',
                                         title=st.session_state['docTitle'].upper())
 
