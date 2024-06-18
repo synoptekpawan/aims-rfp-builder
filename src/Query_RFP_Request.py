@@ -1,22 +1,26 @@
 import streamlit as st
 from streamlit_extras.app_logo import add_logo
 from streamlit_extras.colored_header import colored_header
-from datetime import date
+from datetime import date, datetime
 import time
 from utils.process_file import process_file
 from langchain_community.vectorstores import AzureSearch
 from langchain_community.embeddings import AzureOpenAIEmbeddings
-from langchain.chains import RetrievalQA
+from langchain.chains import RetrievalQA, ConversationalRetrievalChain
 from langchain_community.chat_models import AzureChatOpenAI
 from langchain.memory import ConversationBufferMemory, StreamlitChatMessageHistory
 from langchain.callbacks.tracers.run_collector import RunCollectorCallbackHandler
 from langchain.callbacks.manager import collect_runs
 from langchain.schema.runnable import RunnableConfig
 from langsmith import Client
+from langchain.callbacks.tracers.langchain import wait_for_all_tracers
+from streamlit_feedback import streamlit_feedback
 import os
+import csv
+import random
 import logging
 
-def queryRfp():
+def query_rfp_request():
     ## -------------------------------------------------
     ## Configure logging
     ## -------------------------------------------------
@@ -35,13 +39,13 @@ def queryRfp():
     os.environ['LANGCHAIN_API_KEY'] = os.getenv("LANGCHAIN_API_KEY")
     os.environ['LANGCHAIN_PROJECT'] = os.getenv("LANGCHAIN_PROJECT")
 
-    vector_store_address: str = os.getenv("SEARCH_ENDPOINT")
-    vector_store_password: str = os.getenv("SEARCH_KEY")
+    vector_store_address = os.getenv("SEARCH_ENDPOINT")
+    vector_store_password = os.getenv("SEARCH_KEY")
 
-    azure_openai_api_key: str = os.getenv("OPENAI_API_KEY_AZURE")
-    azure_endpoint: str = os.getenv("OPENAI_ENDPOINT_AZURE")
+    azure_openai_api_key = os.getenv("OPENAI_API_KEY_AZURE")
+    azure_endpoint = os.getenv("OPENAI_ENDPOINT_AZURE")
 
-    openai_api_key: str = os.getenv("OPENAI_API_KEY")
+    openai_api_key = os.getenv("OPENAI_API_KEY")
 
     logger.info("Environment variables loaded")
 
@@ -53,7 +57,7 @@ def queryRfp():
     logger.info("Cleared app cache")
 
     # st.set_page_config(page_title="Query RFP", page_icon="💬", layout="wide")
-    add_logo(r"./synoptek-new-removebg-3.png")
+    # add_logo(r"./synoptek-new-removebg-3.png")
 
     colored_header(
         label="💬 Query RFP", description="\n",
@@ -73,7 +77,7 @@ def queryRfp():
 
     if "messages" not in st.session_state.keys():
         st.session_state["messages"] = [
-            {"role":"assistant", "content":"What you want to know from the RFP?"}
+            {"role": "assistant", "content": "What do you want to know from the RFP?"}
         ]
 
     logger.info("Initialized session state")
@@ -95,27 +99,29 @@ def queryRfp():
     def azure_openai_setup(azure_openai_api_key, azure_endpoint):
         try:
             logger.info("Setting up Azure OpenAI")
-            deployemnt_gpt4_azure = 'gpt-4-aims'
-            deployemnt_gpt35_azure = 'gpt-35-aims'
+            deployment_gpt4_azure = 'gpt-4-aims'
+            deployment_gpt35_azure = 'gpt-35-aims'
 
-            llm_azure_qa = AzureChatOpenAI( 
-                model_name=deployemnt_gpt4_azure,
+            llm_azure_qa = AzureChatOpenAI(
+                model_name=deployment_gpt4_azure,
                 openai_api_key=azure_openai_api_key,
                 azure_endpoint=azure_endpoint,
                 openai_api_version="2024-04-01-preview",
                 temperature=0,
                 max_tokens=4000,
-                model_kwargs={'seed':123}
-            ) 
-            llm_azure_resp = AzureChatOpenAI( 
-                model_name=deployemnt_gpt35_azure,
+                model_kwargs={'seed': 123}
+            )
+
+            llm_azure_resp = AzureChatOpenAI(
+                model_name=deployment_gpt35_azure,
                 openai_api_key=azure_openai_api_key,
                 azure_endpoint=azure_endpoint,
                 openai_api_version="2024-04-01-preview",
                 temperature=0,
                 max_tokens=8000,
-                model_kwargs={'seed':123}
-            ) 
+                model_kwargs={'seed': 123}
+            )
+
             logger.info("Azure OpenAI setup completed")
             return llm_azure_qa, llm_azure_resp
         except Exception as e:
@@ -131,7 +137,7 @@ def queryRfp():
     def azureai_search_setup(azure_endpoint, azure_openai_api_key):
         try:
             logger.info("Setting up Azure AI search")
-            azure_deployment='embeddings-aims'
+            azure_deployment = 'embeddings-aims'
             embeddings = AzureOpenAIEmbeddings(
                 azure_deployment=azure_deployment,
                 openai_api_version="2024-04-01-preview",
@@ -140,6 +146,7 @@ def queryRfp():
             )
             logger.info("Azure AI search setup completed")
             return embeddings
+
         except Exception as e:
             logger.exception("Error setting up Azure AI search: %s", e)
             st.error("Failed to set up Azure AI search. Please check the logs for details.")
@@ -160,6 +167,7 @@ def queryRfp():
                 index_name=index_name,
                 embedding_function=embedds.embed_query,
             )
+
             doc_count = vector_store_.client.get_document_count()
             logger.debug("Document count in vector store: %d", doc_count)
 
@@ -174,11 +182,11 @@ def queryRfp():
                     time_taken = round((time.time() - start_time) / 60, 2)
                     st.success(f"Document uploaded in {time_taken} mins.")
                     logger.info("Document uploaded to vector store %s", index_name)
-                    if os.path.exists(r'./temp/'+rfp.name):
-                        os.remove(r'./temp/'+rfp.name)
+                    if os.path.exists(r'./temp/' + rfp.name):
+                        os.remove(r'./temp/' + rfp.name)
                         logger.info('file deleted from temp folder')
                     else:
-                        logger.info("File does not exists in temp folder")
+                        logger.info("File does not exist in temp folder")
                 else:
                     st.warning("No document provided to upload.")
                     logger.warning("No document provided for uploading to vector store %s", index_name)
@@ -197,7 +205,9 @@ def queryRfp():
     ## -------------------------------------------------
     with st.sidebar:
         st.session_state['clientOrg'] = st.text_input("**What is the client name?** 🚩")
+
         rfp = st.file_uploader("**Upload RFP request to database** 🚩")
+
         if st.session_state['clientOrg']:
             st.session_state['vector_store'] = create_vector_index(st.session_state['clientOrg'], rfp, vector_store_address, vector_store_password)
         else:
@@ -207,7 +217,7 @@ def queryRfp():
     ## setup memory for app
     ## -------------------------------------------------
     memory = ConversationBufferMemory(
-        chat_memory=StreamlitChatMessageHistory(key="langchain_messages"), 
+        chat_memory=StreamlitChatMessageHistory(key="langchain_messages"),
         return_messages=True, memory_key="chat_history"
     )
 
@@ -235,7 +245,7 @@ def queryRfp():
     user_prompt = st.chat_input()
 
     if user_prompt is not None:
-        st.session_state.messages.append({"role":"user", "content":user_prompt})
+        st.session_state.messages.append({"role": "user", "content": user_prompt})
         with st.chat_message("user"):
             st.write(user_prompt)
 
@@ -262,5 +272,7 @@ def queryRfp():
             logger.exception("Error during the collection of runs or session state update: %s", e)
             st.error("Connection aborted. Please generate response template again")
 
-# if __name__ == "__main__":
-#     main()
+    logger.info("-------------------------------------------------------------------")
+
+# # Run the function
+# run_streamlit_app()
