@@ -3,6 +3,7 @@ credentials:
     test_user:
       email: pchichghare@synoptek.com
       name: Test User
+<<<<<<< HEAD
       password: $2b$12$Q9xb9hiSSwkLg4tdB1Kd3.EhdKwgwfdaCAWQIPNImTEvvP6n.tlHa
 
     usernames:
@@ -82,6 +83,75 @@ credentials:
       email: msanchez@synoptek.com
       name: Miguel Sanchez
       password: $2b$12$maBqZsf4MyKvDR0ThQ0F5OrVMUCPMveUprjbXCFXDZpAU96dYT.Va
+=======
+      password: $2b$12$FGOf36NcvtPnwO4J4cToRO.iCVv3x9/y1wWMatTnEQCDUmSr.6qf.
+
+    admin_user:
+      email: pchichghare@synoptek.com
+      name: Admin User
+      password: $2b$12$o6ZiiNvQUzkWAvZFF5AEtOQNJSdeh6MdeM/EWbLZIIZe50QAzOWJu
+
+    mthakkar:
+      email: mthakkar@synoptek.com
+      name: Manan Thakkar
+      password: $2b$12$nPkrvZ1f2A/j5XB0Ao7KuOG3g28LH7psUNzW.GAX5eRMFNIopWZLu
+
+    apurohit:
+      email: apurohit@synoptek.com
+      name: Anish Purohit
+      password: $2b$12$raUY8v/OZTI4x.8SH6IRle/vvXvX75.BdCEBeNhhgAdkd7i34UyY.
+
+    jcann:
+      email: jcann@synoptek.com
+      name: Jay Cann
+      password: $2b$12$vbuIFfoS6t9erko.U5b1ge3kNhWiqOm62xbSuXclZOJp2RIWMUkG2
+
+    rroger:
+      email: rroger@synoptek.com
+      name: Rohan Roger
+      password: $2b$12$Gs4AuSEOYPaeUChPBGsvkuRfar/OSrTEL2alEQJLezHZZQR4WR6qa
+
+    nasingh:
+      email: nasingh@synoptek.com
+      name: Naman Singh
+      password: $2b$12$jovNwGhcCDvgRf3DdCEft.wvIhFZkRGfHTQn8W3h8SoelW53tLcS2
+
+    gfenton:
+      email: gfenton@synoptek.com
+      name: George Fenton
+      password: $2b$12$UMI5rIrrKaiaaGx9mizsJuijQB1ZoDixlUVvf2bcNQmlqaGQmNkcq
+
+    gwarhus:
+      email: gwarhus@synoptek.com
+      name: Giselle Warhus
+      password: $2b$12$ouatNQLBxgAl744qH3Xcx.20853Bu08HiXcYe3ONwvBW1ezMdHKV6
+
+    sryan:
+      email: sryan@synoptek.com
+      name: Sean Ryan
+      password: $2b$12$suRtm61FCshuSJuf0oAvteHAaIa801aDegsXtednR2qUb7DxeC2Ne
+
+    sgahlot:
+      email: sgahlot@synoptek.com
+      name: Shubhankar Gahlot
+      password: $2b$12$2QTyb/6uXRRJo6CyIOXFS.LwYhKNPGWTQMqV3wuDkB94WJElU/Hrm
+
+    cmccarthy:
+      email: cmccarthy@synoptek.com
+      name: Christopher McCarthy
+      password: $2b$12$aNLf14VBi5eGkH557c8jXeg.TX/HJ8chwQif5RPNRSJkrTqZafAJq
+
+    tbritt:
+      email: tbritt@synoptek.com
+      name: Timothy Britt
+      password: $2b$12$6cv1znjTYSOaB6MT.QgOO.mrylBtaGmB50iWOwU4wzF3KaYW8t0g6
+
+    msanchez:
+      email: msanchez@synoptek.com
+      name: Miguel Sanchez
+      password: $2b$12$7QxOn34pRid0mfXXiHs.TOi84voZaeVwVpNDLVKlqmBx9DBxWf2zO
+    
+>>>>>>> 351ac66d2e3f5ef96222b85b77a70e8c7f4f888e
 cookie:
   expiry_days: 30
   key: random_signature_key # Must be string
