@@ -40,7 +40,7 @@ with st.sidebar:
     name, authentication_status, username = authenticator.login('Login', 'main')
 
 if st.session_state["authentication_status"]:
-    st.sidebar.markdown(f'## Hello *{st.session_state["name"]}*')
+    
     # st.sidebar.markdown('### Welcome to Synoptek Professional Proposal Generator !! 🍁"')
     
     selected = option_menu(
@@ -77,7 +77,16 @@ if st.session_state["authentication_status"]:
     
     elif selected == 'Query RFP Request':
         query_rfp_request()
-    
+
+    st.sidebar.markdown(" ")
+    st.sidebar.markdown(" ")
+    st.sidebar.markdown(" ")
+    st.sidebar.markdown(" ")
+    st.sidebar.markdown(" ")
+    st.sidebar.markdown(" ")
+    st.sidebar.markdown(" ")
+    st.sidebar.markdown(" ")
+    st.sidebar.markdown(f'## Hello *{st.session_state["name"]}*')
     authenticator.logout('Logout', 'sidebar')
 
 elif st.session_state["authentication_status"] == False:
