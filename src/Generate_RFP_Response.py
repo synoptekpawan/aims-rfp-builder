@@ -37,11 +37,7 @@ def generate_rfp_response():
     ## -------------------------------------------------
     ## env vars and required vars
     ## -------------------------------------------------
-    os.environ['LANGCHAIN_TRACING_V2'] = 'true'
-    os.environ['LANGCHAIN_ENDPOINT'] = os.getenv("LANGCHAIN_ENDPOINT")
-    os.environ['LANGCHAIN_API_KEY'] = os.getenv("LANGCHAIN_API_KEY")
-    os.environ['LANGCHAIN_PROJECT'] = os.getenv("LANGCHAIN_PROJECT")
-
+    
     vector_store_address = os.getenv("SEARCH_ENDPOINT")
     vector_store_password = os.getenv("SEARCH_KEY")
 
