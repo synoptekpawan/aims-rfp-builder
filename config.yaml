@@ -82,6 +82,18 @@ credentials:
       email: msanchez@synoptek.com
       name: Miguel Sanchez
       password: $2b$12$maBqZsf4MyKvDR0ThQ0F5OrVMUCPMveUprjbXCFXDZpAU96dYT.Va
+
+    usernames:
+    bbray:
+      email: bbray@synoptek.com
+      name: Bo Bray
+      password: $2b$12$35BcfMDeNb5MGKS3tTNe3OiSsnC0EJCexYEpjiJ6scV24wLTepBDKcd ..
+
+    usernames:
+    jvanni:
+      email: jvanni@synoptek.com
+      name: John Vanni
+      password: $2b$12$wgWZUD3z.15c.IIbD6jNyOFbPG7S7NPUc5L6QxmoZvoTnp1kOUsG2
       
 cookie:
   expiry_days: 30
