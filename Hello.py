@@ -8,19 +8,35 @@ from streamlit_option_menu import option_menu
 from streamlit_navigation_bar import st_navbar
 from src.Generate_RFP_Response import generate_rfp_response
 from src.Query_RFP_Request import query_rfp_request
+from azure.storage.blob import BlobServiceClient
 from dotenv import load_dotenv
 import os
 import logging
 import pyotp
 import qrcode
 from PIL import Image
+import io
 
 st.set_page_config(page_title="Hello", page_icon="👋", layout="wide")
 st.sidebar.image(r"./synoptek-new-removebg-3.png")
 
 # Load config
-with open('config.yaml') as file:
-    config = yaml.load(file, Loader=SafeLoader)
+connection_string = os.getenv("AZURE_BLOB_CONNECTION_STRING")
+container_name = "rfp-storage"
+blob_name = "config/config.yaml"
+ 
+#BlobServiceClient
+blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+container_client = blob_service_client.get_container_client(container_name)
+ 
+# blob content to stream
+blob_client = container_client.get_blob_client(blob_name)
+blob_data = blob_client.download_blob().readall()
+ 
+# Load the YAML 
+config = yaml.load(io.BytesIO(blob_data), Loader=yaml.SafeLoader)
+# with open('config.yaml') as file:
+#     config = yaml.load(file, Loader=SafeLoader)
 
 authenticator = stauth.Authenticate(
     config['credentials'],
