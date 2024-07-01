@@ -190,9 +190,9 @@ def generate_rfp_response():
     ## upload rfp request
     ## -------------------------------------------------
     with st.sidebar:
-        st.session_state['clientOrg'] = st.text_input("**What is the client name?** 🚩")
-        st.session_state['docTitle'] = st.text_input("**Provide title for the response document** 🚩")
-        rfp = st.file_uploader("**Upload RFP request to database** 🚩")
+        st.session_state['clientOrg'] = st.text_input("**What is the client name?** 🚩", key="clientOrg_grfp")
+        st.session_state['docTitle'] = st.text_input("**Provide title for the response document** 🚩",  key="docTitle_grfp")
+        rfp = st.file_uploader("**Upload RFP request to database** 🚩",  key="rfp_grfp")
 
         if st.session_state['clientOrg']:
             st.session_state['vector_store'] = create_vector_index(st.session_state['clientOrg'], rfp, vector_store_address, vector_store_password)
