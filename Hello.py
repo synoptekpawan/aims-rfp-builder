@@ -1,4 +1,4 @@
-#Imports
+# Imports
 import streamlit as st
 from streamlit_extras.app_logo import add_logo
 import yaml
@@ -24,19 +24,17 @@ st.sidebar.image(r"./synoptek-new-removebg-3.png")
 connection_string = os.getenv("AZURE_BLOB_CONNECTION_STRING")
 container_name = "rfp-storage"
 blob_name = "config/config.yaml"
- 
-#BlobServiceClient
+
+# BlobServiceClient
 blob_service_client = BlobServiceClient.from_connection_string(connection_string)
 container_client = blob_service_client.get_container_client(container_name)
- 
-# blob content to stream
+
+# Blob content to stream
 blob_client = container_client.get_blob_client(blob_name)
 blob_data = blob_client.download_blob().readall()
- 
-# Load the YAML 
+
+# Load the YAML
 config = yaml.load(io.BytesIO(blob_data), Loader=yaml.SafeLoader)
-# with open('config.yaml') as file:
-#     config = yaml.load(file, Loader=SafeLoader)
 
 authenticator = stauth.Authenticate(
     config['credentials'],
@@ -76,38 +74,37 @@ initialize_session_state()
 # Show the title when on the login page
 if st.session_state["authentication_status"] is None:
     pass
-    # st.title("RFP Response Builder")
 
 # Authentication for App
 with st.sidebar:
     name, authentication_status, username = authenticator.login('Login', 'main')
 
 if st.session_state["authentication_status"]:
-    # Check for OTP Secret and Generate if Not Present
+    # Check for OTP Secret and Generate if Not Prexsent
     user_data = config['credentials']['usernames'].get(username, {})
     otp_secret = user_data.get('otp_secret', "")
 
     if not otp_secret:
         otp_secret = pyotp.random_base32()
         config['credentials']['usernames'][username]['otp_secret'] = otp_secret
-        with open('config.yaml', 'w') as file:
-            yaml.dump(config, file)
+        # Updating blob with new OTP secret
+        blob_client.upload_blob(yaml.dump(config), overwrite=True)
         st.session_state['otp_setup_complete'] = False
         st.session_state['show_qr_code'] = True
-        logger.info("Generated new OTP secret and set show_qr_code to True")
+        logger.info("Generated new OTP secret and set show_qr_code to True for user %s", username)
     else:
         st.session_state['otp_setup_complete'] = True
 
     # Ensure OTP secret is properly handled
     if otp_secret:
         totp = pyotp.TOTP(otp_secret)
+        logger.info("Using OTP secret for user %s: %s", username, otp_secret)
 
         if not st.session_state['otp_verified']:
             # Display QR code for OTP setup only if not completed
             if st.session_state['show_qr_code']:
-                with st.container(border=True):
-                    st.title("Welcome to RFP Builder! 👋")
-                logger.info("Displaying QR code for initial OTP setup")
+                st.title("Welcome to RFP Builder! 👋")
+                logger.info("Displaying QR code for initial OTP setup for user %s", username)
                 otp_uri = totp.provisioning_uri(name=user_data.get('email', ''), issuer_name="RFP Response Builder")
                 qr = qrcode.make(otp_uri)
                 qr = qr.resize((200, 200))  # Resize the QR code to a smaller size
@@ -119,14 +116,19 @@ if st.session_state["authentication_status"]:
             verify_button_clicked = st.button("Verify OTP")
 
             if verify_button_clicked:
+                logger.info("User %s clicked Verify OTP", username)
                 if totp.verify(otp_input):
                     st.session_state['otp_verified'] = True
                     st.session_state['show_qr_code'] = False
+                    logger.info("User %s successfully verified OTP", username)
+                    # Re-upload the config to blob to ensure OTP secret is stored
+                    blob_client.upload_blob(yaml.dump(config), overwrite=True)
                     st.experimental_rerun()
                 else:
                     st.error("Invalid OTP. Please try again.")
+                    logger.warning("User %s provided an invalid OTP", username)
         else:
-            # Navigation and Main Content ok..
+            # Navigation and Main Content
             styles = {
                 "span": {
                     "border-radius": "0.1rem",
@@ -142,8 +144,7 @@ if st.session_state["authentication_status"]:
             selected = st_navbar(["Home", "Generate RFP Response", "Query RFP Request"],
                                 selected=st.session_state.selected_option, styles=styles)
 
-            # --- APP ---   
-            # operation
+            # --- APP ---
             if selected == "Home":
                 st.write("# Welcome to RFP Builder! 👋")
                 st.markdown(
@@ -174,7 +175,6 @@ if st.session_state["authentication_status"]:
             elif selected == 'Query RFP Request':
                 query_rfp_request()
                 st.session_state.selected_option = 'Query RFP Request'
-                # st.experimental_rerun()
             else:
                 pass
 
